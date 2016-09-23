@@ -1,28 +1,34 @@
 package Algorithm;
-import javafx.scene.image.Image;
+import javafx.scene.image.*;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 
+import Algorithm.Algorithm;
+
+import java.awt.image.BufferedImage;
+
+import static java.awt.image.BufferedImage.TYPE_BYTE_GRAY;
+
 /**
- * Created by eberh_000 on 21.09.2016.
+ * This algorithm convverts an im age in grayscale.
  */
-public class MakeGrayScale implements Algorithm {
+public class MakeGrayScale extends Algorithm {
     @Override
-    Image processImage() {
+    BufferedImage processImage() {
 
-        double width = image.getWidth();
-        double height = image.getHeight();
+        int width = image.getWidth();
+        int height = image.getHeight();
 
-        Image result = new Image(width, height);
+        BufferedImage result = new BufferedImage(width, height, TYPE_BYTE_GRAY);
 
-        PixelReader pr = new PixelReader( image );
-        PixelWriter pw = new PixelWriter( image );
 
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++) {
-                int rgb = pr.getColor( x, y);
-                rgb  /= 2;
-
+                int rgb = image.getRGB(x,y);
+                rgb = rgb & 0xFF;
+                result.setRGB(x,y,rgb);
             }
+
+        return result;
     }
 }

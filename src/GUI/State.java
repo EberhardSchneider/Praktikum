@@ -2,6 +2,10 @@ package GUI;
 
 import javafx.scene.image.Image;
 
+import Algorithm.Algorithm;
+
+import java.awt.image.BufferedImage;
+
 /**
  * State Class.
  * Holds a reference to an image and an algorithm to process it.
@@ -9,10 +13,10 @@ import javafx.scene.image.Image;
  *
  */
 public class State {
-    Image image;
+    BufferedImage image;
     Algorithm algorithm;
 
-    public State( Image i, Algorithm a) {
+    public State( BufferedImage i, Algorithm a) {
         image = i;
         algorithm = a;
     }
