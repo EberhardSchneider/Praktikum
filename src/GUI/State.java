@@ -1,10 +1,9 @@
 package GUI;
 
-import javafx.scene.image.Image;
-
-import Algorithm.Algorithm;
+import Algorithm.iAlgorithm;
 
 import java.awt.image.BufferedImage;
+
 
 /**
  * State Class.
@@ -14,9 +13,9 @@ import java.awt.image.BufferedImage;
  */
 public class State {
     BufferedImage image;
-    Algorithm algorithm;
+    iAlgorithm algorithm;
 
-    public State( BufferedImage i, Algorithm a) {
+    public State( BufferedImage i, iAlgorithm a) {
         image = i;
         algorithm = a;
     }
