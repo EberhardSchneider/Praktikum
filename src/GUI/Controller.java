@@ -35,6 +35,8 @@ public class Controller {
 
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
+            MakeRaster mr = new MakeRaster();
+
             workflow.initState(image);
 
             workflow.setAlgorithm(gray);
@@ -42,6 +44,11 @@ public class Controller {
 
             workflow.setAlgorithm(ra);
             workflow.doAction();
+
+            workflow.setAlgorithm(mr);
+            workflow.doAction();
+
+
 
 
 
