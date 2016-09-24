@@ -9,7 +9,7 @@ import static java.awt.image.BufferedImage.TYPE_BYTE_GRAY;
  */
 public class MakeRaster implements iAlgorithm {
 
-    int rasterX = 1 00;
+    int rasterX = 100;
     int rasterY = 100;
 
     public BufferedImage processImage(BufferedImage image) {

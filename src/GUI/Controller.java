@@ -21,6 +21,7 @@ public class Controller {
 
     Command workflow = new Command();
 
+
     @FXML
     Button buttonLoad;
     @FXML
@@ -28,14 +29,16 @@ public class Controller {
 
     @FXML
     public void buttonLoadClick() {
+        ivImage.setFitHeight(400);
         try {
 
-            File f = new File("C:\\Users\\eberh_000\\tiger.jpg");
+            File f = new File("C:\\Users\\eberh_000\\tiger.png");
             BufferedImage image = ImageIO.read(f);
 
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
-            MakeRaster mr = new MakeRaster();
+            ScaleDown mr = new ScaleDown(150,150);
+            DrawInImage draw = new DrawInImage();
 
             workflow.initState(image);
 
@@ -46,6 +49,9 @@ public class Controller {
             workflow.doAction();
 
             workflow.setAlgorithm(mr);
+            workflow.doAction();
+
+            workflow.setAlgorithm(draw);
             workflow.doAction();
 
 
