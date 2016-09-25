@@ -11,12 +11,10 @@ import static java.awt.image.BufferedImage.TYPE_BYTE_GRAY;
 public class RemoveAlpha implements iAlgorithm {
     public BufferedImage processImage(BufferedImage image) {
 
-
-
         int width = image.getWidth();
         int height = image.getHeight();
 
-        BufferedImage result = new BufferedImage(width, height, TYPE_4BYTE_ABGR);
+        BufferedImage result = new BufferedImage(width, height, image.getType() );
 
 
         for (int x = 0; x < width; x++) {
