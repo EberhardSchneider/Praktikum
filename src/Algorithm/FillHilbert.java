@@ -10,8 +10,13 @@ import java.util.ArrayList;
  */
 public class FillHilbert implements iAlgorithm {
 
-    private int scale = 15;
-    private ArrayList<Point> points = new ArrayList<>();
+    // Parameters
+    private int maxIterations = 8;
+    private int lowerThreshold = 50;
+    private int sensibility = 10;
+
+    private int scale = 10;
+    public ArrayList<Point> points = new ArrayList<>();
 
     BufferedImage image;
     private int width;
@@ -40,43 +45,27 @@ public class FillHilbert implements iAlgorithm {
         //if ( y + height > image.getHeight() ) height = image.getHeight() - y;
 
 
-        int nPixels = (int)( ( Math.abs(width*height) < 0.5 ) ? 1 : width * height );
+        int nPixels = (int)( width * height );
         for (int i = (int)x; i < ( x + width); i++) {
             for (int j = (int)y; j < (y + height); j++) {
-                Color c = new Color( image.getRGB( i, j) );
+                Color c = new Color( image.getRGB( i/scale, j/scale) );
                 sum += c.getGreen();
-
             }
         }
-    System.out.println(nPixels);
+    System.out.println(sum/nPixels);
         return sum/nPixels;
     }
 
     void hilbertIteration( double x, double y, double xi, double yi, double xj, double yj, int n) {
-       if (n == 0)  {
-           points.add( new Point((int)(x + (xi+yi)/2),(int)(y + (xj+yj)/2) ));
-       }
+
+       if ( (n == 0)   || ( n < maxIterations - 3) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) < 250-n*150/maxIterations) )
+           points.add(new Point((int) (x + (xi + yi) / 2), (int) (y + (xj + yj) / 2)));
        else {
-           if ( (getBrightnessOfQuadrant( x, y, yi/2, xj/2 ) < ( 123 + n * 122/7 )) )
-                hilbertIteration(x,      y,      yi/2,       yj/2,       xi/2,       xj/2,   n-1);
-           else
-               hilbertIteration(x,      y,      yi/2,       yj/2,       xi/2,       xj/2,   0);
 
-           if ( (getBrightnessOfQuadrant( x+xi/2, y+xj/2, xi/2, yj/2 ) < ( 123 + n * 122/7 )) )
+            hilbertIteration(x,      y,      yi/2,       yj/2,       xi/2,       xj/2,   n-1);
             hilbertIteration(x+xi/2,  y+xj/2,  xi/2,       xj/2,       yi/2,       yj/2,   n-1);
-           else
-               hilbertIteration(x+xi/2,  y+xj/2,  xi/2,       xj/2,       yi/2,       yj/2,   0);
-
-
-           if ( (getBrightnessOfQuadrant( x+xi/2+yi/2, y+xj/2+yj/2, xi/2, yj/2 ) < ( 123 + n * 122/7 )))
-               hilbertIteration(x+xi/2+yi/2,      y+xj/2+yj/2, xi/2, xj/2, yi/2, yj/2, n-1);
-           else
-               hilbertIteration(x+xi/2+yi/2,      y+xj/2+yj/2, xi/2, xj/2, yi/2, yj/2, 0);
-
-           if ( (getBrightnessOfQuadrant( x+xi/2+yi, y+xj/2+yj, -yi/2, -xj/2) < ( 123 + n * 122/7 )))
-               hilbertIteration( x+xi/2+yi, y+xj/2+yj, -yi/2,-yj/2, -xi/2, -xj/2, n-1);
-           else
-               hilbertIteration( x+xi/2+yi, y+xj/2+yj, -yi/2,-yj/2, -xi/2, -xj/2, 0);
+            hilbertIteration(x+xi/2+yi/2,      y+xj/2+yj/2, xi/2, xj/2, yi/2, yj/2, n-1);
+            hilbertIteration( x+xi/2+yi, y+xj/2+yj, -yi/2,-yj/2, -xi/2, -xj/2, n-1);
 
        }
 
@@ -90,14 +79,16 @@ public class FillHilbert implements iAlgorithm {
         width = image.getWidth();
         height = image.getHeight();
 
-        BufferedImage result = new BufferedImage( width, height, image.getType() );
+        BufferedImage result = new BufferedImage( scale * width, scale * height, image.getType() );
 
         Graphics2D g = result.createGraphics();
 
 
 
-        hilbertIteration( 0, 0, width , 0, 0,    height,7);
+        hilbertIteration( 0, 0, scale * width , 0, 0, scale * height, maxIterations);
 
+        g.setStroke(  new BasicStroke( 4, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND) );
+        g.setColor( Color.BLACK );
         Point lastPoint = null;
         for (Point p : points) {
             if (lastPoint != null)

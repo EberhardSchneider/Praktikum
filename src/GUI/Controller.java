@@ -44,8 +44,7 @@ public class Controller {
 
             workflow.initState( image );
 
-            workflow.setAlgorithm(mr);
-            workflow.doAction();
+
 
 
             workflow.setAlgorithm(ra);
