@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" prefHeight="386.0" prefWidth="457.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="686.0" prefWidth="857.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
    <children>
       
       <ScrollPane prefHeight="397.0" prefWidth="692.0" GridPane.columnIndex="1">

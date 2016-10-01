@@ -32,30 +32,31 @@ public class Controller {
         ivImage.setFitHeight(400);
         try {
 
-            File f = new File("C:\\Users\\eberh_000\\tiger.jpg");
+            File f = new File("C:\\Users\\eberh_000\\hamster.jpg");
             BufferedImage image = ImageIO.read(f);
 
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
             ScaleDown mr = new ScaleDown(100,100);
-            FillImageSpiral draw = new FillImageSpiral();
+            FillHilbert fh = new FillHilbert();
 
-            workflow.initState(image);
+
+
+            workflow.initState( image );
+
+            workflow.setAlgorithm(mr);
+            workflow.doAction();
 
 
             workflow.setAlgorithm(ra);
             workflow.doAction();
 
+
             workflow.setAlgorithm(gray);
             workflow.doAction();
 
-
-            workflow.setAlgorithm(mr);
+            workflow.setAlgorithm(fh);
             workflow.doAction();
-
-            workflow.setAlgorithm(draw);
-            workflow.doAction();
-
 
 
 
