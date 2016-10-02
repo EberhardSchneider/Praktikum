@@ -12,6 +12,8 @@ public class FillHilbert implements iAlgorithm {
 
     // Parameters
     private int maxIterations = 9;
+    private int minIterations = 3;
+
     private int lowerThreshold = 50;
     private int sensibility = 10;
 
@@ -25,8 +27,10 @@ public class FillHilbert implements iAlgorithm {
     ColorModel colorModel;
 
     final static class Point {
+
         int x;
         int y;
+
         public Point( int x, int y ) {
             this.x = x;
             this.y = y;
@@ -39,26 +43,24 @@ public class FillHilbert implements iAlgorithm {
         }
     }
 
-    public int getBrightnessOfQuadrant( double x, double y, double width, double height) {
+    public int getBrightnessOfQuadrant(double x, double y, double width, double height) {
         int sum = 0;
-        //if ( x + width > image.getWidth() ) width = image.getWidth() - x;
-        //if ( y + height > image.getHeight() ) height = image.getHeight() - y;
-
 
         int nPixels = (int)( width * height );
+
         for (int i = (int)x; i < ( x + width); i++) {
             for (int j = (int)y; j < (y + height); j++) {
                 Color c = new Color( image.getRGB( i/scale, j/scale) );
                 sum += c.getGreen();
             }
         }
-    System.out.println(sum/nPixels);
+
         return sum/nPixels;
     }
 
     void hilbertIteration( double x, double y, double xi, double yi, double xj, double yj, int n) {
 
-       if ( (n == 0)   || ( n < maxIterations - 5) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) > 109 + n*200/maxIterations))
+       if ( (n == 0)   || (n < maxIterations - minIterations) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) > 109 + n*200/maxIterations))
            points.add(new Point((int) (x + (xi + yi) / 2), (int) (y + (xj + yj) / 2)));
        else {
 
@@ -84,11 +86,12 @@ public class FillHilbert implements iAlgorithm {
         Graphics2D g = result.createGraphics();
 
 
-
         hilbertIteration( 0, 0, scale * width , 0, 0, scale * height, maxIterations);
+
 
         g.setStroke(  new BasicStroke( 4, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND) );
         g.setColor( Color.BLACK );
+
         Point lastPoint = null;
         for (Point p : points) {
             if (lastPoint != null)

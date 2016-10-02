@@ -7,7 +7,7 @@ import Algorithm.iAlgorithm;
 import java.util.ArrayList;
 
 /**
- * Holds a list of States to implement do/undo functionality.
+ * Holds a list of States and methods to implement do/undo functionality.
  * (Kind of implements Command Pattern.)
  */
 public class Command {

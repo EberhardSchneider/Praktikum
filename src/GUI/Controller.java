@@ -2,6 +2,8 @@ package GUI;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
@@ -12,6 +14,9 @@ import java.io.File;
 
 import javafx.scene.image.ImageView;
 import Algorithm.*;
+import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 
 /**
@@ -19,21 +24,44 @@ import Algorithm.*;
  */
 public class Controller {
 
+
+    @FXML
+    Node root;
+
+    @FXML
+    Button button_linefill;
+    @FXML
+    Button button_scanline;
+
+
     Command workflow = new Command();
 
 
-    @FXML
-    Button buttonLoad;
-    @FXML
-    ImageView ivImage;
 
     @FXML
-    public void buttonLoadClick() {
+    ImageView ivImage;
+    GridPane gridpaneMain;
+
+
+
+
+
+
+
+    /**
+     * Should open a dialogue for the Linefill Parameters,
+     * then proceed with the processing.
+     * In the Moment it just does a Linefill with set parameters.
+     * Gets called when #buttonLinefill is clicked.
+     */
+
+    @FXML
+    public void buttonLinefillClick() {
         ivImage.setFitHeight(400);
         try {
 
-            File f = new File("C:\\Users\\eberh_000\\tiger.jpg");
-            BufferedImage image = ImageIO.read(f);
+            ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
+            ///BufferedImage image = ImageIO.read(f);
 
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
@@ -41,7 +69,7 @@ public class Controller {
 
 
 
-            workflow.initState( image );
+
 
 
 
@@ -67,14 +95,60 @@ public class Controller {
         }
     }
 
+    /**
+     * Loads an image file and starts a new command workflow with the image in its first state.
+     * Gets called when the #buttonLoad Button is clicked.
+     */
+    @FXML
+    public void buttonLoadClick() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load Image");
+        fileChooser.setInitialDirectory(new File("C:\\Users\\eberh_000"));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+
+
+
+        try {
+            // Open File Dialog and reset workflow to new image
+            File f = fileChooser.showOpenDialog(ivImage.getScene().getWindow());
+            BufferedImage image = ImageIO.read(f);
+            workflow.initState( image );
+
+            // enable the linefill and scanline button
+            button_linefill.setDisable( false );
+            button_scanline.setDisable( false );
+
+            showImage();
+        }
+        catch (Exception e) {
+             System.out.println("Error in Load File Dialog");
+             e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Undos last processing and shows the resulting image.
+     * Gets called when #buttonUndo is clicked.
+     */
     @FXML
     public void buttonUndoClick() {
         workflow.undoAction();
         showImage();
     }
 
+    /**
+     * Shows the image in the current workflow state in the GUI.
+     *
+     */
     void showImage() {
         Image showImage = SwingFXUtils.toFXImage(workflow.getImage(), null);
         ivImage.setImage(showImage);
     }
+
+
 }

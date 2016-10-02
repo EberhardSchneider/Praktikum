@@ -26,9 +26,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+
+        FXMLLoader loader = new FXMLLoader();
+        Parent root =loader.load(getClass().getResource("gui.fxml"));
+        Controller controller = loader.getController();
+
 
         primaryStage.setTitle("Hello World");
+        primaryStage.setMinHeight( 800 );
+        primaryStage.setMinWidth( 800 );
 
         Scene scene = new Scene(root, 300, 275);
 
