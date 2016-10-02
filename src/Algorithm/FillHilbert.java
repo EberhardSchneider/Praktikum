@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class FillHilbert implements iAlgorithm {
 
     // Parameters
-    private int maxIterations = 9;
+    private int maxIterations = 10;
     private int minIterations = 3;
 
     private int lowerThreshold = 50;
     private int sensibility = 10;
 
-    private int scale = 10;
+    private int scale = 15;
     public ArrayList<Point> points = new ArrayList<>();
 
     BufferedImage image;
@@ -45,6 +45,16 @@ public class FillHilbert implements iAlgorithm {
 
     public int getBrightnessOfQuadrant(double x, double y, double width, double height) {
         int sum = 0;
+
+        if (width < 0) {
+            x += width;
+            width = -width;
+        }
+
+        if (height < 0) {
+            y += height;
+            height = -height;
+        }
 
         int nPixels = (int)( width * height );
 

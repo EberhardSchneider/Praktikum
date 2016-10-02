@@ -1,20 +1,26 @@
 package GUI;
 
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 
 
 import javax.imageio.ImageIO;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javafx.scene.image.ImageView;
 import Algorithm.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -25,13 +31,14 @@ import javafx.stage.Stage;
 public class Controller {
 
 
-    @FXML
-    Node root;
+
 
     @FXML
     Button button_linefill;
     @FXML
     Button button_scanline;
+    @FXML
+    VBox vboxParam;
 
 
     Command workflow = new Command();
@@ -151,4 +158,22 @@ public class Controller {
     }
 
 
+    public void buttonScanlineClick() {
+      /*  workflow.setAlgorithm( new MakeBlackWhite(200) );
+        workflow.doAction();
+
+        Slider slider = new Slider();
+        slider.setMin(0);
+        slider.setMax(255);
+        slider.setValue(180);
+        slider.setShowTickLabels(true);
+
+        Button button = new Button("Do It!");
+        button.addEventHandler();
+
+
+        });
+
+        showImage();*/
+    }
 }

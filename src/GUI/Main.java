@@ -33,8 +33,8 @@ public class Main extends Application {
 
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setMinHeight( 800 );
-        primaryStage.setMinWidth( 800 );
+        primaryStage.setMinHeight( 1200 );
+        primaryStage.setMinWidth(1400 );
 
         Scene scene = new Scene(root, 300, 275);
 
