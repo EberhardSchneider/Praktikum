@@ -32,12 +32,11 @@ public class Controller {
         ivImage.setFitHeight(400);
         try {
 
-            File f = new File("C:\\Users\\eberh_000\\hamster.jpg");
+            File f = new File("C:\\Users\\eberh_000\\tiger.jpg");
             BufferedImage image = ImageIO.read(f);
 
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
-            ScaleDown mr = new ScaleDown(100,100);
             FillHilbert fh = new FillHilbert();
 
 

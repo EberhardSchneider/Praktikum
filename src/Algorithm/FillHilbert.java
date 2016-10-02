@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FillHilbert implements iAlgorithm {
 
     // Parameters
-    private int maxIterations = 8;
+    private int maxIterations = 9;
     private int lowerThreshold = 50;
     private int sensibility = 10;
 
@@ -58,7 +58,7 @@ public class FillHilbert implements iAlgorithm {
 
     void hilbertIteration( double x, double y, double xi, double yi, double xj, double yj, int n) {
 
-       if ( (n == 0)   || ( n < maxIterations - 3) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) < 250-n*150/maxIterations) )
+       if ( (n == 0)   || ( n < maxIterations - 5) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) > 109 + n*200/maxIterations))
            points.add(new Point((int) (x + (xi + yi) / 2), (int) (y + (xj + yj) / 2)));
        else {
 
