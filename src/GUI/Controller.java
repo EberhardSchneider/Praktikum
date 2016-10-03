@@ -3,6 +3,7 @@ package GUI;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -47,6 +48,7 @@ public class Controller {
 
     @FXML
     ImageView ivImage;
+    @FXML
     GridPane gridpaneMain;
 
 
@@ -73,10 +75,6 @@ public class Controller {
             MakeGrayScale gray = new MakeGrayScale();
             RemoveAlpha ra = new RemoveAlpha();
             FillHilbert fh = new FillHilbert();
-
-
-
-
 
 
 
@@ -159,8 +157,26 @@ public class Controller {
 
 
     public void buttonScanlineClick() {
-      /*  workflow.setAlgorithm( new MakeBlackWhite(200) );
+        scanlineBlackWhite();
+    }
+
+
+    /**
+     * first step of Scanline:
+     * makes Slider to transform image to black&white
+     * returns when proceed button is pressed
+     */
+    public void scanlineBlackWhite() {
+
+        workflow.setAlgorithm(new RemoveAlpha());
         workflow.doAction();
+
+        workflow.setAlgorithm(new MakeGrayScale());
+        workflow.doAction();
+
+        workflow.setAlgorithm( new MakeBlackWhite( 180) );
+        workflow.doAction();
+
 
         Slider slider = new Slider();
         slider.setMin(0);
@@ -168,12 +184,41 @@ public class Controller {
         slider.setValue(180);
         slider.setShowTickLabels(true);
 
-        Button button = new Button("Do It!");
-        button.addEventHandler();
 
+        slider.valueProperty().addListener(new javafx.beans.value.ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 
+                if ( oldValue == newValue ) return;
+                workflow.undoAction();
+                System.out.println("Undo");
+
+                workflow.setAlgorithm( new MakeBlackWhite( (int)Math.round(newValue.doubleValue()) ) );
+                workflow.doAction();
+                System.out.println("Do with threshold = " + (int)Math.round(newValue.doubleValue()));
+
+                showImage();
+            }
         });
 
-        showImage();*/
+        Button button = new Button("Proceed");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                gridpaneMain.getChildren().remove( slider );
+                gridpaneMain.getChildren().remove(event.getSource());
+                scanlineTWO();
+            }
+        });
+
+
+        gridpaneMain.getChildren().add( slider );
+        gridpaneMain.getChildren().add( button );
+
+        showImage();
+    }
+
+    public void scanlineTWO() {
+
     }
 }

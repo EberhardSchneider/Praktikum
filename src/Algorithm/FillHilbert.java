@@ -94,6 +94,8 @@ public class FillHilbert implements iAlgorithm {
         BufferedImage result = new BufferedImage( scale * width, scale * height, image.getType() );
 
         Graphics2D g = result.createGraphics();
+        g.setPaint( Color.WHITE );
+        g.fillRect( 0,0, scale * width, scale * height );
 
 
         hilbertIteration( 0, 0, scale * width , 0, 0, scale * height, maxIterations);

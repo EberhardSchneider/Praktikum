@@ -3,6 +3,8 @@ package Algorithm;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import static java.awt.Color.BLACK;
+
 /**
  * Created by eberh_000 on 02.10.2016.
  */
@@ -20,7 +22,7 @@ public class MakeBlackWhite implements iAlgorithm {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        BufferedImage result = new BufferedImage( scale * width, scale * height, image.getType() );
+        BufferedImage result = new BufferedImage( scale * width, scale * height, BufferedImage.TYPE_BYTE_GRAY );
 
         Graphics2D g = result.createGraphics();
 
@@ -28,6 +30,7 @@ public class MakeBlackWhite implements iAlgorithm {
             for (int y = 0; y < height; y++) {
                 int greenValue =  ( image.getRGB( x/scale, y/scale) >> 8 ) & 0xFF;
                 int grayValue = (int)(greenValue * (1 / 0.587));
+
 
                 if ( grayValue > threshold) {
                     result.setRGB( x, y, 0xFFFFFF);

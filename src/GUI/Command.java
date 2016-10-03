@@ -15,6 +15,7 @@ public class Command {
     // stateFlow holds all states of the image processing
     private ArrayList<State> stateFlow = new ArrayList<>();
     private State currentState = null;
+    private int index;
 
     // Constructor:
     // does nothing in the moment, first state is added when image file is loaded.
@@ -30,6 +31,7 @@ public class Command {
         State state = new State(image, null);
         stateFlow.add( state );
         currentState = state;
+        index = 0;
     }
 
     public BufferedImage getImage() {
@@ -52,14 +54,17 @@ public class Command {
         State newState = new State( newImage, null);
         stateFlow.add( newState );
         currentState = newState;
+        index++;
 
     }
 
     public void undoAction() {
-        int index = stateFlow.indexOf( currentState );
-        if ( index == 0) return;
 
+        if ( index == 0) return;
         index--;
+
         currentState = stateFlow.get( index );
     }
+
+
 }
