@@ -3,12 +3,10 @@ package Algorithm;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static java.awt.Color.BLACK;
-
 /**
  * Created by eberh_000 on 02.10.2016.
  */
-public class MakeBlackWhite implements iAlgorithm {
+public class MakeBlackWhite implements iImageAlgorithm {
 
     public MakeBlackWhite( int threshold ) {
         this.threshold = threshold;

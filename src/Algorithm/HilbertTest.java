@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  * Created by eberh_000 on 02.10.2016.
  */
-public class HilbertTest implements iAlgorithm {
+public class HilbertTest implements iImageAlgorithm {
 
     private int scale = 1;
     Graphics2D g;

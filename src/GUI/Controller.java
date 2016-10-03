@@ -5,6 +5,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -183,6 +184,7 @@ public class Controller {
         slider.setMax(255);
         slider.setValue(180);
         slider.setShowTickLabels(true);
+        slider.setOrientation(Orientation.VERTICAL);
 
 
         slider.valueProperty().addListener(new javafx.beans.value.ChangeListener<Number>() {
@@ -205,20 +207,32 @@ public class Controller {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                gridpaneMain.getChildren().remove( slider );
-                gridpaneMain.getChildren().remove(event.getSource());
+
+                vboxParam.getChildren().remove(event.getSource());
                 scanlineTWO();
             }
         });
 
 
-        gridpaneMain.getChildren().add( slider );
-        gridpaneMain.getChildren().add( button );
+        vboxParam.getChildren().add( slider );
+        vboxParam.getChildren().add( button );
 
         showImage();
     }
 
     public void scanlineTWO() {
+        iArrayAlgorithm convertToArray = new ConvertImageToArray( workflow.getImage(), 180);
+        int[][] array = convertToArray.processArray( null );
 
+
+        iArrayAlgorithm calculateDistanceMatrix = new SeparateRegions();
+        array = calculateDistanceMatrix.processArray( array );
+
+        iImageAlgorithm convertToImage = new ConvertArrayToImage( array );
+
+        workflow.setAlgorithm( convertToImage );
+        workflow.doAction();
+
+        showImage();
     }
 }

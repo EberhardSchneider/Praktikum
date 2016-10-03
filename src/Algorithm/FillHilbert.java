@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by eberh_000 on 25.09.2016.
  */
-public class FillHilbert implements iAlgorithm {
+public class FillHilbert implements iImageAlgorithm {
 
     // Parameters
     private int maxIterations = 10;

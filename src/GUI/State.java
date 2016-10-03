@@ -1,6 +1,6 @@
 package GUI;
 
-import Algorithm.iAlgorithm;
+import Algorithm.iImageAlgorithm;
 
 import java.awt.image.BufferedImage;
 
@@ -13,9 +13,9 @@ import java.awt.image.BufferedImage;
  */
 public class State {
     BufferedImage image;
-    iAlgorithm algorithm;
+    iImageAlgorithm algorithm;
 
-    public State( BufferedImage i, iAlgorithm a) {
+    public State( BufferedImage i, iImageAlgorithm a) {
         image = i;
         algorithm = a;
     }

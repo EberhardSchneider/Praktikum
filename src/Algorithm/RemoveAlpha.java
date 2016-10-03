@@ -2,13 +2,10 @@ package Algorithm;
 
 import java.awt.image.BufferedImage;
 
-import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
-import static java.awt.image.BufferedImage.TYPE_BYTE_GRAY;
-
 /**
  * Created by eberh_000 on 24.09.2016.
  */
-public class RemoveAlpha implements iAlgorithm {
+public class RemoveAlpha implements iImageAlgorithm {
     public BufferedImage processImage(BufferedImage image) {
 
         int width = image.getWidth();

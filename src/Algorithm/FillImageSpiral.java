@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  * Created by eberh_000 on 24.09.2016.
  */
-public class FillImageSpiral implements iAlgorithm {
+public class FillImageSpiral implements iImageAlgorithm {
 
     private int scale = 15;
 

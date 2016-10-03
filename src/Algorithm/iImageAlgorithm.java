@@ -9,6 +9,6 @@ import java.awt.image.BufferedImageFilter;
  * This should be implemented by all classes, which process Image informations.
  * Every Algorithm is expected to delive a NEW buffered image.
  */
-public interface iAlgorithm {
+public interface iImageAlgorithm {
     BufferedImage processImage(BufferedImage image);
 }

@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
  * Algorithm to get images with low resolution to get the linefill process working.
  * This comes from: http://www.mkyong.com/java/how-to-resize-an-image-in-java/
  */
-public class ScaleDown implements iAlgorithm {
+public class ScaleDown implements iImageAlgorithm {
 
     int newWidth = 100;
     int newHeight = 100;

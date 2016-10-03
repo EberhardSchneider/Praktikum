@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  * Created by eberh_000 on 24.09.2016.
  */
-public class DrawInImage implements iAlgorithm {
+public class DrawInImage implements iImageAlgorithm {
     public BufferedImage processImage(BufferedImage image) {
 
         int oldWidth = image.getWidth();

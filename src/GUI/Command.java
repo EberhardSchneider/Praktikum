@@ -1,7 +1,7 @@
 package GUI;
 
 import java.awt.image.BufferedImage;
-import Algorithm.iAlgorithm;
+import Algorithm.iImageAlgorithm;
 
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class Command {
         return currentState.image;
     }
 
-    public void setAlgorithm(iAlgorithm a) {
+    public void setAlgorithm(iImageAlgorithm a) {
         currentState.algorithm = a;
     }
 

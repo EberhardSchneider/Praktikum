@@ -1,16 +1,11 @@
 package Algorithm;
 
-import javafx.scene.paint.Color;
-
 import java.awt.image.BufferedImage;
-
-import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
-import static java.awt.image.BufferedImage.TYPE_BYTE_GRAY;
 
 /**
  * This algorithm convverts an im age in grayscale.
  */
-public class MakeGrayScale implements iAlgorithm {
+public class MakeGrayScale implements iImageAlgorithm {
 
     public BufferedImage processImage(BufferedImage image) {
 
