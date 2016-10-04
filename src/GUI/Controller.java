@@ -228,7 +228,8 @@ public class Controller {
         iArrayAlgorithm calculateDistanceMatrix = new SeparateRegions();
         array = calculateDistanceMatrix.processArray( array );
 
-        iImageAlgorithm convertToImage = new ConvertArrayToImage( array );
+
+        iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( array );
 
         workflow.setAlgorithm( convertToImage );
         workflow.doAction();

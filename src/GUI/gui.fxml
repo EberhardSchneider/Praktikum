@@ -32,7 +32,7 @@
             <Button fx:id="button_scanline" disable="true" mnemonicParsing="false" text="ScanLine"
                     onAction="#buttonScanlineClick"/>
 
-            <Button fx:id="button_undo" disable="true" mnemonicParsing="false"
+            <Button fx:id="button_undo" disable="false" mnemonicParsing="false"
                     onAction="#buttonUndoClick" text="Undo" />
             <Button fx:id="button_redo" disable="true" mnemonicParsing="false"
                     onAction="#buttonUndoClick" text="Redo" />

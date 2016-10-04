@@ -33,9 +33,9 @@ public class ConvertImageToArray implements iArrayAlgorithm {
         int[][] result = new int[height][width];
 
 
-        for (int i = 0; i < width; i++)
-            for (int j = 0; j < height; j++) {
-                int greenValue =  ( image.getRGB( i, j ) >> 8 ) & 0xFF;
+        for (int i = 0; i < height; i++)
+            for (int j = 0; j < width; j++) {
+                int greenValue =  ( image.getRGB( j, i ) >> 8 ) & 0xFF;
                 int grayValue = (int)(greenValue * (1 / 0.587));
 
 

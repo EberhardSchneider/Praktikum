@@ -16,23 +16,42 @@ public class SeparateRegions implements iArrayAlgorithm {
         int[][] D = new int[height][width];
 
         // First pass of algorithm
-        for (int i = 1; i < height; i++)
-            for (int j = 1; j < width; j++) {
+        for (int i = 0; i < height; i++)
+            for (int j = 0; j < width; j++) {
+
                 if ( array[i][j] == 0) {
                     I[i][j] = 0;
                 }
-                else if ( (i > 1) || (j > 1) || (array[i][j] == 1) ) {
-                    I[i][j] = Math.min( I[i-1][j]+1, I[i][j-1]+1 );
+                else
+                if ( (i > 1) || (j > 1) || (array[i][j] == 1) ) {
+                    if ( (i != 0) && ( j != 0) )
+                        I[i][j] = Math.min( I[i-1][j]+1, I[i][j-1]+1 );
+                    else if ( (i == 0) && ( j!= 0) )
+                            I[i][j] = I[i][j-1] + 1;
+                    else if ( (i != 0) && (j == 0))
+                            I[i][j] = I[i-1][j];
+
+                    else I[i][j] = 0;
                 }
                 else
                     I[i][j] =width + height;
             }
 
         // Second pass of algorithm
-    for (int i = (height - 2); i >= 0; i--)
-        for (int j = (width - 2); j >= 0; j--) {
-            int min = Math.min( I[i][j], I[i+1][j] + 1);
-            D[i][j] = Math.min( I[i][j+1] + 1, min);
+    for (int i = (height - 1); i >= 0; i--)
+        for (int j = (width - 1); j >= 0; j--) {
+
+            if ( ( i != height-1 ) && (j != width-1 ) ) {
+                int min = Math.min(I[i][j], I[i + 1][j] + 1);
+                D[i][j] = Math.min(I[i][j + 1] + 1, min);
+            }
+            else if ( ( i == height-1) && (j != width-1 ) )
+                D[i][j] = Math.min( I[i][j+1] + 1, I[i][j] );
+            else if ( (i != height-1) && (j == width-1 ) )
+                D[i][j] = Math.min( I[i][j], I[i+1][j]+1);
+            else
+                D[i][j] = 0;
+
         }
 
 
