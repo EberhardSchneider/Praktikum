@@ -6,16 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 
 
 import javax.imageio.ImageIO;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -24,7 +20,6 @@ import Algorithm.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 
 /**
@@ -225,7 +220,7 @@ public class Controller {
         int[][] array = convertToArray.processArray( null );
 
 
-        iArrayAlgorithm calculateDistanceMatrix = new SeparateRegions();
+        iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
         array = calculateDistanceMatrix.processArray( array );
 
 

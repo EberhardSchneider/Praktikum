@@ -3,7 +3,7 @@ package Algorithm;
 /**
  * Created by eberh_000 on 03.10.2016.
  */
-public class SeparateRegions implements iArrayAlgorithm {
+public class CalculateDistanceMatrix implements iArrayAlgorithm {
 
     public int[][] processArray(int[][] array) {
 
@@ -11,6 +11,8 @@ public class SeparateRegions implements iArrayAlgorithm {
 
         int height = array.length;
         int width = array[0].length;
+
+        
 
         int[][] I = new int[height][width];
         int[][] D = new int[height][width];
