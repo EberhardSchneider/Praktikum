@@ -26,11 +26,9 @@ public class ConvertImageToArray implements iArrayAlgorithm {
     }
     public int [][] processArray(int[][] array) {
 
-
-
         int width = image.getWidth();
         int height = image.getHeight();
-        int[][] result = new int[height][width];
+        int[][] result = new int[width][height];
 
 
         for (int i = 0; i < height; i++)
@@ -40,9 +38,9 @@ public class ConvertImageToArray implements iArrayAlgorithm {
 
 
                 if ( grayValue > threshold) {
-                    result[i][j] = 1;
+                    result[j][i] = 1;
                 } else
-                    result[i][j] = 0;
+                    result[j][i] = 0;
             }
 
         return result;

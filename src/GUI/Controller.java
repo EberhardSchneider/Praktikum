@@ -223,6 +223,9 @@ public class Controller {
         iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
         array = calculateDistanceMatrix.processArray( array );
 
+        iArrayAlgorithm separate = new RemoveRegions( 10 );
+        array = separate.processArray( array );
+
 
         iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( array );
 

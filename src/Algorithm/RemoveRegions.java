@@ -49,9 +49,9 @@ public class RemoveRegions implements iArrayAlgorithm {
         // then delete all pixels in lists and all pixels
         // with distance values >= n
 
-        ListOfPoints[] points = new ListOfPoints[line_thickness-1];
+        ListOfPoints[] points = new ListOfPoints[line_thickness+1];
 
-        for (int i=0; i < line_thickness-1; i++ ) {
+        for (int i=0; i < line_thickness+1; i++ ) {
             points[i] = new ListOfPoints();
         }
 
@@ -60,6 +60,10 @@ public class RemoveRegions implements iArrayAlgorithm {
             for (int y = 0; y < height; y++) {
                 if ( (array[x][y] == line_thickness-1) && (hasNeighbourOfValue(x, y, line_thickness)))
                     points[line_thickness].add( new Point(x,y));
+                else if ( (array[x][y] >= line_thickness)) {
+                    result[x][y] = 1;
+                    a[x][y] = 0;
+                }
             }
 
             // loop through all distance values from l_t to 1
@@ -71,25 +75,27 @@ public class RemoveRegions implements iArrayAlgorithm {
                 int yPos = p.y;
 
                 int xStart = ( xPos > 0 ) ? xPos-1 : xPos;
-                int xEnd = ( xPos < width ) ? xPos+1 : xPos;
+                int xEnd = ( xPos < (width-1) ) ? xPos+1 : xPos;
                 int yStart = ( yPos > 0 ) ? yPos-1 : yPos;
-                int yEnd = ( yPos < height ) ? yPos+1 : yPos;
+                int yEnd = ( yPos < (height-1) ) ? yPos+1 : yPos;
 
                 for (int x = xStart; x <= xEnd; x++)
                     for (int y = yStart; y <= yEnd; y++)
-                        if ( array[x][y] == distanceValue )
+                        if ( (array[x][y] == distanceValue) && ( (xPos != x) && ( yPos != y) ) )
                             points[distanceValue].add( new Point( x, y ));
             }
         }
 
         // now all Points belonging to section should be in lists n -> n-1
         for (int n = line_thickness; n > 0; n--) {
-            for (Point p : points[n])
+            for (Point p : points[n]) {
                 result[p.x][p.y] = 1;
+                a[p.x][p.y] = 0;
+            }
         }
 
 
-        return result;
+        return a;
 
     }
 
@@ -98,9 +104,9 @@ public class RemoveRegions implements iArrayAlgorithm {
 
 
         int xStart = ( xPos > 0 ) ? xPos-1 : xPos;
-        int xEnd = ( xPos < width ) ? xPos+1 : xPos;
+        int xEnd = ( xPos < (width-1) ) ? xPos+1 : xPos;
         int yStart = ( yPos > 0 ) ? yPos-1 : yPos;
-        int yEnd = ( yPos < height ) ? yPos+1 : yPos;
+        int yEnd = ( yPos < (height-1) ) ? yPos+1 : yPos;
 
         for (int x = xStart; x <= xEnd; x++)
             for (int y = yStart; y <= yEnd; y++)

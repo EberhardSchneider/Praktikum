@@ -36,7 +36,7 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
                     else I[i][j] = 0;
                 }
                 else
-                    I[i][j] =width + height;
+                    I[i][j] = width + height;
             }
 
         // Second pass of algorithm
