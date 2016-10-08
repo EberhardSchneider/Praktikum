@@ -29,8 +29,6 @@ import javafx.stage.FileChooser;
 public class Controller {
 
 
-
-
     @FXML
     Button button_linefill;
     @FXML
