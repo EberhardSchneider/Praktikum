@@ -1,7 +1,7 @@
 package Algorithm;
 
 /**
- * Created by eberh_000 on 03.10.2016.
+ * Calculates distance matrix from black&white image array.
  */
 public class CalculateDistanceMatrix implements iArrayAlgorithm {
 
@@ -12,7 +12,6 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
         int height = array.length;
         int width = array[0].length;
 
-        
 
         int[][] I = new int[height][width];
         int[][] D = new int[height][width];

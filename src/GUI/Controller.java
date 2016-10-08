@@ -1,5 +1,6 @@
 package GUI;
 
+import Matrix.*;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -216,12 +217,13 @@ public class Controller {
     }
 
     public void scanlineTWO() {
-        iArrayAlgorithm convertToArray = new ConvertImageToArray( workflow.getImage(), 180);
-        int[][] array = convertToArray.processArray( null );
+
+        DistanceMatrix matrix = new DistanceMatrix( workflow.getImage(), 180);
 
 
-        iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
-        array = calculateDistanceMatrix.processArray( array );
+
+
+
 
         iArrayAlgorithm separate = new RemoveRegions( 10 );
         array = separate.processArray( array );
