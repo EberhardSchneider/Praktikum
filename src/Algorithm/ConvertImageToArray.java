@@ -37,7 +37,7 @@ public class ConvertImageToArray implements iArrayAlgorithm {
                 int grayValue = (int)(greenValue * (1 / 0.587));
 
 
-                if ( grayValue > threshold) {
+                if ( grayValue < threshold) {
                     result[j][i] = 1;
                 } else
                     result[j][i] = 0;

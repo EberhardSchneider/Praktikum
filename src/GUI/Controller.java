@@ -204,6 +204,7 @@ public class Controller {
 
                 vboxParam.getChildren().remove(event.getSource());
                 scanlineTWO();
+                showImage();
             }
         });
 
@@ -216,20 +217,9 @@ public class Controller {
 
     public void scanlineTWO() {
 
-        DistanceMatrix matrix = new DistanceMatrix( workflow.getImage(), 180);
+        iImageAlgorithm scanline = new ScanLine();
 
-
-
-
-
-
-        iArrayAlgorithm separate = new RemoveRegions( 10 );
-        array = separate.processArray( array );
-
-
-        iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( array );
-
-        workflow.setAlgorithm( convertToImage );
+        workflow.setAlgorithm( scanline );
         workflow.doAction();
 
         showImage();

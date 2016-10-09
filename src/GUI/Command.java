@@ -18,7 +18,7 @@ public class Command {
     private int index;
 
     // Constructor:
-    // does nothing in the moment, first state is added when image file is loaded.
+    // does nothing in the moment, first state is added when initState() is called.
     public Command() {
     }
 
@@ -42,13 +42,15 @@ public class Command {
         currentState.algorithm = a;
     }
 
-
+    /**
+     * processes the image in current state with the algorithm in current state,
+     * then adds new state to state list with the new image and empty algorithm slot.
+     */
     public void doAction() {
         if (currentState == null || currentState.algorithm == null
                 || currentState.image == null) {
             return;
         }
-
 
         BufferedImage newImage = currentState.algorithm.processImage(currentState.image);
         State newState = new State( newImage, null);

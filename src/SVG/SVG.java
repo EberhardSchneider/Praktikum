@@ -10,7 +10,7 @@ import java.io.*;
  */
 public class SVG {
 
-    ArrayList<SVGElement> elements = new ArrayList<SVGElement>();
+    ArrayList<SVGElement> elements = new ArrayList<>();
 
     interface SVGElement {
         public String toSVG();
@@ -89,18 +89,18 @@ public class SVG {
 
         // Header
         sb.append("<?xml version=\"1.0\"?>");
-        sb.append((System.getProperty("line.separator"));
+        sb.append(System.getProperty("line.separator"));
         sb.append("<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"");
-        sb.append((System.getProperty("line.separator"));
+        sb.append(System.getProperty("line.separator"));
         sb.append("\"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"");
-        sb.append((System.getProperty("line.separator"));
+        sb.append(System.getProperty("line.separator"));
         sb.append("<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"534\" height=\"698\">");
-        sb.append((System.getProperty("line.separator"));
+        sb.append(System.getProperty("line.separator"));
 
         // Now add all elements
         for (SVGElement e : elements) {
             sb.append( e.toSVG());
-            sb.append((System.getProperty("line.separator"));
+            sb.append(System.getProperty("line.separator"));
         }
 
         sb.append("</svg>");

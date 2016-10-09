@@ -1,21 +1,24 @@
 package Algorithm;
 
 import java.awt.image.BufferedImage;
+import SVG.*;
 
 /**
  * Implements the whole ScanLine Process.
  * Returns the resulting vector Image in BufferedImage format.
- * getSVG() return SVG File.
+ * getSVG() returns SVG Object in String format.
  *
  * Parameters:
- * lineThickness: threshold for line-region differentiation
+ * lineThickness: threshold for line/region differentiation
  * regionHandling: [ region, contourAsLine, fillWithLines, divideLines ]
  */
 public class ScanLine implements iImageAlgorithm {
 
     // main attributes
     private BufferedImage image;
+    private int[][] array; // image as array of 0s and 1s
     private int[][] distanceMatrix;
+    SVG svg;
 
     // Parameters
     private int lineThickness = 3;
@@ -34,12 +37,12 @@ public class ScanLine implements iImageAlgorithm {
 
     // Constructors
     public ScanLine() {
-        calculateDistanceMatrix();
+
     }
 
     public ScanLine(int lineThickness) {
         this.lineThickness = lineThickness;
-        calculateDistanceMatrix();
+
     }
 
 
@@ -48,9 +51,10 @@ public class ScanLine implements iImageAlgorithm {
      */
     private void calculateDistanceMatrix() {
         iArrayAlgorithm calculateArray = new ConvertImageToArray( image, 128 ); // threshold hardcoded, because source image should be black and white
-        iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
+        array = calculateArray.processArray( null );
 
-        this.distanceMatrix = calculateDistanceMatrix.processArray( calculateArray.processArray( null ) );
+        iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
+        this.distanceMatrix = calculateDistanceMatrix.processArray( array );
     }
 
     /**
@@ -62,6 +66,10 @@ public class ScanLine implements iImageAlgorithm {
      * @return
      */
     public BufferedImage processImage(BufferedImage image) {
+
+        this.image = image;
+
+        calculateDistanceMatrix();
 
         // First Step: REGIONS
 
@@ -82,8 +90,40 @@ public class ScanLine implements iImageAlgorithm {
 
         // Third Step:
         // searchForLines()
-        // store where???
+        // store in svg
 
-        return null;
+        // Fourth Step:
+        // draw new image according to svg information
+        // return it
+
+        return this.image;
+    }
+
+
+    // Methods which handle the different kinds of region handling
+    // the methods should delete the regions from the original picture
+    // and put their SVG Information in attribute svg.
+    // --------------------------------------------------------------------------------------------------
+
+    private void leaveAsRegion() {
+
+        //iArrayAlgorithm separate = new RemoveRegions( 10 );
+        //distanceMatrix = separate.processArray( distanceMatrix );
+        iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( distanceMatrix );
+
+        this.image = convertToImage.processImage( null );
+    }
+
+
+    private void contourAsLine() {
+
+    }
+
+    private void fillWithLines() {
+
+    }
+
+    private void divideAsLines() {
+
     }
 }

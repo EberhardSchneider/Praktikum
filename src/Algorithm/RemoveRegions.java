@@ -35,8 +35,8 @@ public class RemoveRegions implements iArrayAlgorithm {
 
         this.array = a;
 
-        height = array.length;
-        width = array[0].length;
+        width = array.length;
+        height = array[0].length;
 
         int[][] result = new int[width][height];
 

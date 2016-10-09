@@ -16,8 +16,8 @@ public class ConvertDistanceMatrixToImage implements iImageAlgorithm {
     @Override
     public BufferedImage processImage(BufferedImage image) {
 
-        int height = array.length;
-        int width = array[0].length;
+        int width = array.length;
+        int height = array[0].length;
 
         BufferedImage result = new BufferedImage( width, height, BufferedImage.TYPE_BYTE_GRAY);
 
@@ -26,8 +26,8 @@ public class ConvertDistanceMatrixToImage implements iImageAlgorithm {
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if ( array[y][x] > max )
-                    max = array[y][x];
+                if ( array[x][y] > max )
+                    max = array[x][y];
             }
         }
 
@@ -35,7 +35,7 @@ public class ConvertDistanceMatrixToImage implements iImageAlgorithm {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
-                int c = 255 - (array[y][x] * 255/max);
+                int c = 255 - (array[x][y] * 255/max);
                 int rgb = c << 16 | c << 8 | c;
 
                 result.setRGB( x, y, rgb );
