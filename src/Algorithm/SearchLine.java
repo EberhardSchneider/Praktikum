@@ -11,15 +11,17 @@ public class SearchLine implements iSVGAlgorithm {
 
     public SVG processArray( int[][] array ) {
 
-        // best to have two arrays ?
-        // delete all processed pixels in original array
-        // and keep them in copy to calculate difference between
 
-        // 1: go through array and find first pixel
 
-        // 2: search next point, delete it, compare line from this point to starting point
-        //    with pixels in copy... if difference is too great, get back to last pixel
-        //    and add line
+        /*
+        1: go through array and find first pixel = 1
+        2: store pixel in list <visitedPixels>
+        search next point, delete it, compare line from this point to starting point
+        with pixels in list... if the difference is too great, add line from starting point
+        to last pixel in list... delete pixels in list from original array
+        3: continue from last found pixel with 2: until no neighbour is reachable
+            then continue with 1 until last pixel of image is reached
+        */
 
     }
 
