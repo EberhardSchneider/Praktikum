@@ -1,11 +1,17 @@
 package Algorithm;
 
+import sun.rmi.runtime.Log;
+
+import java.util.logging.Logger;
+
 /**
  * Calculates distance matrix from black&white image array.
  */
 public class CalculateDistanceMatrix implements iArrayAlgorithm {
 
     public int[][] processArray(int[][] array) {
+
+        Logger log = Logger.getLogger( CalculateDistanceMatrix.class.getName() );
 
         if ( ( array == null) || ( array[0] == null )) return null;
 
@@ -31,8 +37,6 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
                             I[i][j] = I[i][j-1] + 1;
                     else if ( (i != 0) && (j == 0))
                             I[i][j] = I[i-1][j];
-
-                    else I[i][j] = 0;
                 }
                 else
                     I[i][j] = width + height;
@@ -43,12 +47,12 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
         for (int i = (width - 1); i >= 0; i--) {
 
             if ( ( j != height-1 ) && (i != width-1 ) ) {
-                D[i][j] = min3( I[i][j], I[i+1][j] + 1, I[i][j + 1] + 1);
+                D[i][j] = min3( I[i][j], D[i+1][j] + 1, D[i][j + 1] + 1);
             }
             else if ( ( j != height-1) && (i == width-1 ) )
-                D[i][j] = Math.min( I[i][j+1] + 1, I[i][j] );
+                D[i][j] = Math.min( D[i][j+1] + 1, I[i][j] );
             else if ( (j == height-1) && (i != width-1 ) )
-                D[i][j] = Math.min( I[i][j], I[i+1][j]+1);
+                D[i][j] = Math.min( I[i][j], D[i+1][j] + 1);
             else
                 D[i][j] = I[i][j];
 

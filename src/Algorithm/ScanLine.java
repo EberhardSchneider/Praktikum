@@ -107,9 +107,11 @@ public class ScanLine implements iImageAlgorithm {
 
     private void leaveAsRegion() {
 
-        //iArrayAlgorithm separate = new RemoveRegions( 10 );
-        //distanceMatrix = separate.processArray( distanceMatrix );
+        iArrayAlgorithm separate = new GetCountourOfRegions( 8 );
+        distanceMatrix = separate.processArray( distanceMatrix );
         iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( distanceMatrix );
+
+
 
         this.image = convertToImage.processImage( null );
     }

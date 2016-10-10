@@ -122,6 +122,8 @@ public class Controller {
             button_linefill.setDisable( false );
             button_scanline.setDisable( false );
 
+            ivImage.setFitWidth( image.getWidth() );
+
             showImage();
         }
         catch (Exception e) {
