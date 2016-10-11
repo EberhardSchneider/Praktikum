@@ -1,5 +1,7 @@
 package SVG;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -14,13 +16,28 @@ public class SVG {
 
     interface SVGElement {
         public String toSVG();
+        public Point[] getCoordinates();
+    }
+
+    static final class Point {
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override public String toString() {
+            return "x: " + x + "  y: " + y;
+        }
     }
 
     static final class Line implements SVGElement {
 
-        int x1,x2,y1,y2;
+        int x1, x2, y1, y2;
 
-        public Line( int x1, int y1, int x2, int y2) {
+        public Line(int x1, int y1, int x2, int y2) {
             this.x1 = x1;
             this.y1 = y1;
             this.x2 = x2;
@@ -30,16 +47,23 @@ public class SVG {
         public String toSVG() {
             StringBuilder sb = new StringBuilder();
             sb.append("<line style=\"fill:none;stroke:rgb(0,0,0);stroke-linejoin=bevel\" x1=\"");
-            sb.append( x1 );
+            sb.append(x1);
             sb.append("\" y1 = \"");
-            sb.append( y1 );
+            sb.append(y1);
             sb.append("\" x1 = \"");
-            sb.append( x1 );
+            sb.append(x1);
             sb.append("\" y2 = \"");
-            sb.append( y2 );
+            sb.append(y2);
             sb.append("\" />");
 
             return sb.toString();
+        }
+
+        public Point[] getCoordinates() {
+            Point[] result = new Point[2];
+            result[0] = new Point(x1, y1);
+            result[1] = new Point(x2, y1);
+            return result;
         }
     }
 
@@ -72,7 +96,16 @@ public class SVG {
 
             return sb.toString();
         }
+
+        public Point[] getCoordinates() {
+            Point[] result = new Point[ nPoints ];
+            for (int i = 0; i < nPoints; i++) {
+                result[i] = new Point( x[i], y[i] );
+            }
+            return result;
+        }
     }
+
 
     public void addLine( int x1, int x2, int y1, int y2) {
         elements.add( new Line(x1, y1, x2, y2) );
@@ -107,6 +140,24 @@ public class SVG {
 
         File f = new File( sb.toString() );
         return f;
+    }
+
+    /**
+     * returns a buffered image which shows the svg elements stored
+     * @return image with svg elements
+     */
+    public BufferedImage getImage() {
+        BufferedImage image = new BufferedImage( 800, 600, BufferedImage.TYPE_BYTE_GRAY);
+        Graphics2D g = image.createGraphics();
+        // calculate max x / y - coordinates in svg elements
+        int maxX = 0;
+        int maxY = 0;
+
+        for (SVGElement e : elements) {
+            Point[] p = e.getCoordinates();
+            
+        }
+
     }
 
 }
