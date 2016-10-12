@@ -172,7 +172,7 @@ public class Controller {
         workflow.setAlgorithm(new MakeGrayScale());
         workflow.doAction();
 
-        workflow.setAlgorithm( new MakeBlackWhite( 180) );
+        workflow.setAlgorithm( new MakeBlackWhite( 100) );
         workflow.doAction();
 
 

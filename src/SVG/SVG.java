@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Random;
 
 /**
  * Class to store the SVG informations.
@@ -46,13 +47,13 @@ public class SVG {
 
         public String toSVG() {
             StringBuilder sb = new StringBuilder();
-            sb.append("<line style=\"fill:none;stroke:rgb(0,0,0);stroke-linejoin=bevel\" x1=\"");
+            sb.append("<line style=\"fill:none; stroke:rgb(0,0,0); stroke-linejoin=bevel\" x1=\"");
             sb.append(x1);
-            sb.append("\" y1 = \"");
+            sb.append("\" y1=\"");
             sb.append(y1);
-            sb.append("\" x2 = \"");
+            sb.append("\" x2=\"");
             sb.append(x2);
-            sb.append("\" y2 = \"");
+            sb.append("\" y2=\"");
             sb.append(y2);
             sb.append("\" />");
 
@@ -138,16 +139,19 @@ public class SVG {
 
         sb.append("</svg>");
 
+
         File f = new File( sb.toString() );
         return f;
     }
+
+
 
     /**
      * returns a buffered image which shows the svg elements stored
      * @return image with svg elements
      */
     public BufferedImage getImage() {
-        BufferedImage image = new BufferedImage( 800, 600, BufferedImage.TYPE_BYTE_GRAY);
+        BufferedImage image = new BufferedImage( 600, 600, BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g = image.createGraphics();
         // calculate max x / y - coordinates in svg elements
         int maxX = 0;
@@ -158,10 +162,14 @@ public class SVG {
 
 
 
-            g.setColor(Color.WHITE);
+
+            Random randomNumber = new Random();
+            g.setColor(new Color(randomNumber.nextFloat(),
+                    randomNumber.nextFloat(), randomNumber.nextFloat() ));
             g.setStroke( new BasicStroke( 4, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
             for (int i = 1; i < p.length; i++) {
                 g.drawLine( p[i-1].x, p[i-1].y, p[i].x, p[i].y);
+
             }
             // add last Connection if element is Polygon
             if (p.length > 2) {

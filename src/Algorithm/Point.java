@@ -42,7 +42,7 @@ class Point {
 
         for (int x = xStart; x <= xEnd; x++)
             for (int y = yStart; y <= yEnd; y++) {
-                if ( (array[x][y] != 0) && ( (xPos != x) && ( yPos != y) ) )
+                if ( (array[x][y] != 0) && ( (xPos != x) || ( yPos != y) ) )
                     return( new Point( x, y) );
             }
         return null;
@@ -66,7 +66,7 @@ class Point {
 
         for (int x = xStart; x <= xEnd; x++)
             for (int y = yStart; y <= yEnd; y++) {
-                if ( (array[x][y] != 0) && ( (xPos != x) && ( yPos != y) ) )
+                if ( (array[x][y] != 0) && ( (xPos != x) || ( yPos != y) ) )
                     neighbours.add( new Point( x, y) );
             }
         return neighbours;
@@ -132,7 +132,7 @@ class Point {
             int dx = Math.abs( p1.x - p2.x );
             int dy = Math.abs( p1.y - p2.y );
 
-            difference += (dx + dy);
+            difference += Math.max(dx,dy);
         }
 
         return difference;
