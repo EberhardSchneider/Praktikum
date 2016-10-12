@@ -1,6 +1,7 @@
 package GUI;
 
-import Matrix.*;
+import SVG.*;
+
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -225,5 +226,22 @@ public class Controller {
         workflow.doAction();
 
         showImage();
+    }
+
+    public void svgTest() {
+        SVG s = new SVG();
+
+        int[] x = { 0, 30, 80, 90, 100 };
+        int[] y = { 0, 500, 200, 0, 50 };
+
+        int nPoints = 5;
+
+        s.addPolygon(x, y, nPoints);
+
+
+
+        Image showImage = SwingFXUtils.toFXImage(s.getImage(), null);
+        ivImage.setImage(showImage);
+        System.out.println( s.getFile() );
     }
 }

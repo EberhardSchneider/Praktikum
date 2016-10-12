@@ -109,11 +109,15 @@ public class ScanLine implements iImageAlgorithm {
 
         iArrayAlgorithm separate = new GetCountourOfRegions( 8 );
         distanceMatrix = separate.processArray( distanceMatrix );
+
+        iSVGAlgorithm search = new SearchLine();
+        SVG s = search.processArray( distanceMatrix );
+        System.out.println( s.getFile() );
+        this.image = s.getImage();
+       /*
         iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( distanceMatrix );
-
-
-
         this.image = convertToImage.processImage( null );
+        */
     }
 
 

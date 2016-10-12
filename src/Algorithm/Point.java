@@ -90,7 +90,7 @@ class Point {
         int y1 = target.y;
 
         int dx = Math.abs(x1 - x0);
-        int dy = Math.abs(y1 - y0);
+        int dy = -Math.abs(y1 - y0);
 
         int sx = x0 < x1 ? 1 : -1;
         int sy = y0 < y1 ? 1 : -1;
@@ -99,7 +99,7 @@ class Point {
 
 
 
-        while ( (x0 != x1) && (y0 != y1) ) {
+        while ( (x0 != x1) || (y0 != y1) ) {
             line.add( new Point( x0, y0) );
             int e2 = 2 * err;
             if (e2 > dy) {
@@ -132,7 +132,7 @@ class Point {
             int dx = Math.abs( p1.x - p2.x );
             int dy = Math.abs( p1.y - p2.y );
 
-            difference += dx + dy;
+            difference += (dx + dy);
         }
 
         return difference;

@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
 <?import javafx.scene.layout.VBox?>
+
 <GridPane fx:id="gridpaneMain" alignment="center" hgap="10" prefHeight="686.0" prefWidth="857.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
    <children>
 
@@ -17,33 +17,31 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="411.0">
                <children>
-                   <ImageView fx:id="ivImage" preserveRatio="true"></ImageView>
+                   <ImageView fx:id="ivImage" preserveRatio="true" />
                </children>
           </AnchorPane>
         </content>
       </ScrollPane>
 
-       <VBox fx:id="vboxParam" prefHeight="100" prefWidth="200" GridPane.columnIndex="2" ></VBox>
+       <VBox fx:id="vboxParam" prefHeight="100" prefWidth="200" GridPane.columnIndex="2" />
 
       <ButtonBar prefHeight="25.0" prefWidth="405.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <buttons>
-            <Button fx:id="button_linefill" disable="true" mnemonicParsing="false"
-                    onAction="#buttonLinefillClick" text="LineFill" />
-            <Button fx:id="button_scanline" disable="true" mnemonicParsing="false" text="ScanLine"
-                    onAction="#buttonScanlineClick"/>
+            <Button fx:id="button_linefill" disable="true" mnemonicParsing="false" onAction="#buttonLinefillClick" text="LineFill" />
+            <Button fx:id="button_scanline" disable="true" mnemonicParsing="false" onAction="#buttonScanlineClick" text="ScanLine" />
 
-            <Button fx:id="button_undo" disable="false" mnemonicParsing="false"
-                    onAction="#buttonUndoClick" text="Undo" />
-            <Button fx:id="button_redo" disable="true" mnemonicParsing="false"
-                    onAction="#buttonUndoClick" text="Redo" />
+            <Button fx:id="button_undo" disable="false" mnemonicParsing="false" onAction="#buttonUndoClick" text="Undo" />
+            <Button fx:id="button_redo" disable="true" mnemonicParsing="false" onAction="#buttonUndoClick" text="Redo" />
 
             <Button fx:id="button_load" mnemonicParsing="false" onAction="#buttonLoadClick" text="Load Image" />
+            <Button fx:id="button_testsvg" onAction="#svgTest" mnemonicParsing="false" text="Button" />
         </buttons>
       </ButtonBar>
 
    </children>
 
     <columnConstraints>
+      <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>

@@ -48,8 +48,10 @@ public class SearchLine implements iSVGAlgorithm {
                     while (firstNeighbour != null) {
                         // Calculate Bresenham-Line from fist pixel in array to last found pixel
                         ArrayList<Point> idealLine = startingPoint.bresenham( firstNeighbour );
+
                         // if difference between bresenham-Line and visited Pixels is too great
-                        if ( Point.difference( idealLine, visitedPixels ) > 5 ) {
+                        System.out.println(Point.difference( idealLine, visitedPixels ));
+                        if ( Point.difference( idealLine, visitedPixels ) > 0 ) {
                             // add line to svg object
                             Point endPoint = visitedPixels.get(visitedPixels.size() - 1);
                             svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
@@ -66,10 +68,17 @@ public class SearchLine implements iSVGAlgorithm {
 
                             firstNeighbour = pixel.getFirstNeighbour( array );
                         }
+                        else {
+                            visitedPixels.add( firstNeighbour  );
+                            array[pixel.x][pixel.y] = 0;
+                            pixel = firstNeighbour;
+                            firstNeighbour = pixel.getFirstNeighbour( array );
+                        }
+
                     }
 
 
-                    return svg;
+
 
                 }
             }
@@ -78,7 +87,7 @@ public class SearchLine implements iSVGAlgorithm {
 
 
 
-        return null;
+        return svg;
 
     }
 

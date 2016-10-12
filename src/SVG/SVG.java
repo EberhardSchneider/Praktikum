@@ -50,8 +50,8 @@ public class SVG {
             sb.append(x1);
             sb.append("\" y1 = \"");
             sb.append(y1);
-            sb.append("\" x1 = \"");
-            sb.append(x1);
+            sb.append("\" x2 = \"");
+            sb.append(x2);
             sb.append("\" y2 = \"");
             sb.append(y2);
             sb.append("\" />");
@@ -62,7 +62,7 @@ public class SVG {
         public Point[] getCoordinates() {
             Point[] result = new Point[2];
             result[0] = new Point(x1, y1);
-            result[1] = new Point(x2, y1);
+            result[1] = new Point(x2, y2);
             return result;
         }
     }
@@ -107,7 +107,7 @@ public class SVG {
     }
 
 
-    public void addLine( int x1, int x2, int y1, int y2) {
+    public void addLine( int x1, int y1, int x2, int y2) {
         elements.add( new Line(x1, y1, x2, y2) );
     }
 
@@ -155,9 +155,22 @@ public class SVG {
 
         for (SVGElement e : elements) {
             Point[] p = e.getCoordinates();
-            
+
+
+
+            g.setColor(Color.WHITE);
+            g.setStroke( new BasicStroke( 4, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+            for (int i = 1; i < p.length; i++) {
+                g.drawLine( p[i-1].x, p[i-1].y, p[i].x, p[i].y);
+            }
+            // add last Connection if element is Polygon
+            if (p.length > 2) {
+                g.drawLine( p[0].x, p[0].y, p[p.length-1].x, p[p.length-1].y);
+            }
+
         }
 
+        return image;
     }
 
 }
