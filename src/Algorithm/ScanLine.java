@@ -3,6 +3,8 @@ package Algorithm;
 import java.awt.image.BufferedImage;
 import SVG.*;
 
+
+
 /**
  * Implements the whole ScanLine Process.
  * Returns the resulting vector Image in BufferedImage format.
@@ -129,6 +131,11 @@ public class ScanLine implements iImageAlgorithm {
 
         contourSVG.addSVG( restSVG );
 
+        System.out.println( contourSVG.getFile() );
+
+        contourSVG.deleteLinesShorterThan( 5 );
+
+        System.out.println( contourSVG.getFile() );
 
 
 

@@ -104,6 +104,8 @@ public class SearchLine implements iSVGAlgorithm {
                     polylines.add( currentPolyline );
                     Point endPoint = pixel;
                     svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
+
+                    // clear visitedPixel List
                     visitedPixels.clear();
                     System.out.println("First neighbour null:");
 
@@ -111,7 +113,7 @@ public class SearchLine implements iSVGAlgorithm {
             }
 
             int index = 0;
-
+        // Algorithm to smooth polylines
         for (Polyline poly : polylines) {
             Point[] polyline = new Point[ poly.polyline.size() ];
             for (int i = 0; i < polyline.length; i++) {
@@ -143,7 +145,7 @@ public class SearchLine implements iSVGAlgorithm {
             }
         }
 
-        if (maxDistance < 10) {
+        if (maxDistance < 1) {
             // add line from index1 to index2
             resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
             return;

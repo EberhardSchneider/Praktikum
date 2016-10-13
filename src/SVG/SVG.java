@@ -230,4 +230,21 @@ public class SVG {
         return image;
     }
 
+    public void deleteLinesShorterThan(double maxLength) {
+        ArrayList<SVGElement> toBeDeleted = new ArrayList<>();
+
+        for (SVGElement e : this.elements) {
+            if (e instanceof Line) {
+                Line line = (Line)e;
+                double length  = Math.sqrt( Math.pow( (line.x2-line.x1), 2) + Math.pow( (line.y2-line.y1), 2));
+                if (length < maxLength)
+                    toBeDeleted.add( e );
+            }
+        }
+
+        for (SVGElement e : toBeDeleted) {
+            this.elements.remove( e );
+        }
+    }
+
 }
