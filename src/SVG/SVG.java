@@ -74,7 +74,7 @@ public class SVG {
         int[] y;
         int nPoints;
 
-        public Polygon ( int[] x, int[] y, int nPoints ) {
+        public Polygon(int[] x, int[] y, int nPoints) {
             this.x = x;
             this.y = y;
             this.nPoints = nPoints;
@@ -82,21 +82,61 @@ public class SVG {
 
         public String toSVG() {
             StringBuilder sb = new StringBuilder();
-            sb.append("<path style=\"fill:none;stroke:rgb(0,0,0);stroke-linejoin=bevel ");
+            sb.append("<path style=\"fill:none;stroke:rgb(0,0,0);stroke-linejoin=bevel\" ");
 
             for (int i = 0; i < nPoints; i++) {
                 if (i == 0) {
                     sb.append("M");
-                }
-                else {
+                } else {
                     sb.append("L");
                 }
-                sb.append( x[i] + " " + y[i] + " ");
+                sb.append(x[i] + " " + y[i] + " ");
             }
             sb.append(" />");
 
             return sb.toString();
         }
+
+        public Point[] getCoordinates() {
+            Point[] result = new Point[ nPoints ];
+            for (int i = 0; i < nPoints; i++) {
+                result[i] = new Point( x[i], y[i] );
+            }
+            return result;
+        }
+    }
+
+        static final class Polyline implements SVGElement {
+
+            int[] x;
+            int[] y;
+            int nPoints;
+
+            public Polyline ( int[] x, int[] y, int nPoints ) {
+                this.x = x;
+                this.y = y;
+                this.nPoints = nPoints;
+            }
+
+            public String toSVG() {
+                StringBuilder sb = new StringBuilder();
+                sb.append("<polyline style=\"fill:none;stroke:rgb(0,0,0);stroke-linejoin=bevel\" ");
+
+                for (int i = 0; i < nPoints; i++) {
+                    if (i == 0) {
+                        sb.append("M");
+                    }
+                    else {
+                        sb.append("L");
+                    }
+                    sb.append( x[i] + " " + y[i] + " ");
+                }
+                sb.append(" />");
+
+                return sb.toString();
+            }
+
+
 
         public Point[] getCoordinates() {
             Point[] result = new Point[ nPoints ];
@@ -144,14 +184,22 @@ public class SVG {
         return f;
     }
 
+    /**
+     * method to merge two svg objects
+     * @param svg2 svg Object to be merged with this
+     */
+    public void addSVG( SVG svg2 ) {
+        this.elements.addAll( svg2.elements );
+    }
+
 
 
     /**
      * returns a buffered image which shows the svg elements stored
      * @return image with svg elements
      */
-    public BufferedImage getImage() {
-        BufferedImage image = new BufferedImage( 600, 600, BufferedImage.TYPE_BYTE_GRAY);
+    public BufferedImage getImage(int width, int height) {
+        BufferedImage image = new BufferedImage( width, height, BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g = image.createGraphics();
         // calculate max x / y - coordinates in svg elements
         int maxX = 0;
@@ -166,7 +214,8 @@ public class SVG {
             Random randomNumber = new Random();
             g.setColor(new Color(randomNumber.nextFloat(),
                     randomNumber.nextFloat(), randomNumber.nextFloat() ));
-            g.setStroke( new BasicStroke( 4, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+            g.setColor( Color.GREEN );
+            g.setStroke( new BasicStroke( 1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
             for (int i = 1; i < p.length; i++) {
                 g.drawLine( p[i-1].x, p[i-1].y, p[i].x, p[i].y);
 

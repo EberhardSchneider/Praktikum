@@ -132,10 +132,22 @@ class Point {
             int dx = Math.abs( p1.x - p2.x );
             int dy = Math.abs( p1.y - p2.y );
 
-            difference += Math.max(dx,dy);
+            difference += (dx + dy);
         }
 
         return difference;
 
+    }
+
+    /**
+     * returns distance of Point from Line defined by Points p1, p2
+     * @param p1 Startpoint of line
+     * @param p2 Endpoint of Line
+     * @return distance from point to line
+     */
+    public float distanceFromLine( Point p1, Point p2 ) {
+        float distance = Math.abs( (p2.y - p1.y) * this.x - (p2.x - p1.x) * this.y + p2.x * p1.y - p2.y * p1.x);
+        distance /= Math.sqrt( Math.pow( (p2.y - p1.y), 2 ) + Math.pow( (p2.x - p1.x ), 2 ) );
+        return distance;
     }
 }

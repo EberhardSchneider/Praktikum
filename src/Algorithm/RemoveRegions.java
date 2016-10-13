@@ -46,6 +46,13 @@ public class RemoveRegions implements iArrayAlgorithm {
 
         int[][] result = new int[width][height];
 
+        // copy original array in result
+        for (int i = 0; i < array.length; i++) {
+            System.arraycopy( array[i], 0, result[i],0, array[i].length );
+        }
+
+
+
         // first step:
         // put all pixels with distance value n-1 which have neighbours
         // with distance value n in list l_n
@@ -99,15 +106,12 @@ public class RemoveRegions implements iArrayAlgorithm {
         // now all Points belonging to region should be in set region
 
         for (Point p : region) {
-            result[p.x][p.y] = 1;
-            a[p.x][p.y] = 0;
+            result[p.x][p.y] = 0;
+
         }
 
-
-
-
-
-        return a;
+        // return original array without regions
+        return result;
 
     }
 

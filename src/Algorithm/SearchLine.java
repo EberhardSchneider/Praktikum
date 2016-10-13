@@ -15,12 +15,18 @@ public class SearchLine implements iSVGAlgorithm {
     int width;
     int height;
 
+    final static class Polyline {
+        ArrayList<Point> polyline = new ArrayList<>();
+    }
+
+
+
     public SVG processArray( int[][] array ) {
 
         width = array.length;
         height = array[0].length;
 
-
+        ArrayList<Polyline> polylines = new ArrayList<>();
 
         /*
         1: go through array and find first pixel = 1
@@ -32,6 +38,8 @@ public class SearchLine implements iSVGAlgorithm {
             then continue with 1 until last pixel of image is reached
         */
 
+
+
         for (int y = 0; y < height; y++)
             for (int x = 0; x < width; x++) {
 
@@ -39,32 +47,44 @@ public class SearchLine implements iSVGAlgorithm {
 
                     ArrayList<Point> visitedPixels = new ArrayList<>();
 
+                    Polyline currentPolyline = new Polyline();
+
                     Point pixel = new Point(x, y);
+
+                    // start polyline
+                    currentPolyline.polyline.add( pixel );
+
                     visitedPixels.add( pixel );
                     Point startingPoint = pixel;
-
                     Point firstNeighbour = pixel.getFirstNeighbour( array );
+                    visitedPixels.add( firstNeighbour);
+
 
                     while (firstNeighbour != null) {
+
+
                         // Calculate Bresenham-Line from fist pixel in array to last found pixel
                         ArrayList<Point> idealLine = startingPoint.bresenham( firstNeighbour );
 
                         // if difference between bresenham-Line and visited Pixels is too great
-                        System.out.println(Point.difference( idealLine, visitedPixels ));
-                        if ( Point.difference( idealLine, visitedPixels ) > 3) {
+                        if ( Point.difference( idealLine, visitedPixels ) > 5) {
                             System.out.println("Difference too great!");
-                            // add line to svg object
-                            Point endPoint = visitedPixels.get(visitedPixels.size() - 1);
-                            svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
-                            // delete all visited pixels from original array
-                            for (Point p : visitedPixels) {
-                                array[p.x][p.y] = 0;
-                            }
-                            // new starting point, delete visitedPixels
-                            visitedPixels.clear();
 
-                            startingPoint = firstNeighbour;
-                            pixel = startingPoint;
+                            Point endPoint = visitedPixels.get(visitedPixels.size() - 2);
+
+                            // add next line to Polyline Object
+                            currentPolyline.polyline.add( endPoint );
+
+                            // delete all visited pixels from original array
+                            /* for (Point p : visitedPixels) {
+                                array[p.x][p.y] = 0;
+                            }*/
+                            // new starting point, delete visitedPixels
+
+
+                            pixel = visitedPixels.get( visitedPixels.size() - 1);
+                            startingPoint = pixel;
+                            visitedPixels.clear();
                             visitedPixels.add( pixel );
 
                             firstNeighbour = pixel.getFirstNeighbour( array );
@@ -78,6 +98,10 @@ public class SearchLine implements iSVGAlgorithm {
 
                     }
                     // now we ended in a dead end... first neighbour = null
+
+                    // first start new polyline
+                    currentPolyline.polyline.add( pixel );
+                    polylines.add( currentPolyline );
                     Point endPoint = pixel;
                     svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
                     visitedPixels.clear();
@@ -86,9 +110,47 @@ public class SearchLine implements iSVGAlgorithm {
                 }
             }
 
+            int index = 0;
+
+        for (Polyline poly : polylines) {
+            Point[] polyline = new Point[ poly.polyline.size() ];
+            for (int i = 0; i < polyline.length; i++) {
+                polyline[i] = poly.polyline.get( i );
+            }
+            dp(0, polyline.length-1, polyline, svg);
+        }
 
         return svg;
 
+    }
+
+    public void dp( int index1, int index2, Point[] points, SVG resultingSVG) {
+        if ( (index2 - index1) == 1 ) {
+            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            return;
+        }
+        Point p1 = points[index1];
+        Point p2 = points[index2];
+
+        float maxDistance = 0;
+        int maxIndex = -1;
+
+        for (int i = index1 + 1; i < index2 - 1; i++) {
+            float d = points[i].distanceFromLine( p1, p2 );
+            if (d > maxDistance ) {
+                maxDistance = d;
+                maxIndex = i;
+            }
+        }
+
+        if (maxDistance < 10) {
+            // add line from index1 to index2
+            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            return;
+        }
+
+        dp( index1, maxIndex, points, resultingSVG);
+        dp( maxIndex, index2, points, resultingSVG);
     }
 
 

@@ -240,7 +240,7 @@ public class Controller {
 
 
 
-        Image showImage = SwingFXUtils.toFXImage(s.getImage(), null);
+        Image showImage = SwingFXUtils.toFXImage(s.getImage(150,150), null);
         ivImage.setImage(showImage);
         System.out.println( s.getFile() );
     }

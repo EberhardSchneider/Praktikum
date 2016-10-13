@@ -69,6 +69,8 @@ public class ScanLine implements iImageAlgorithm {
 
         this.image = image;
 
+        System.out.println( (new Point( 110, 10)).distanceFromLine( (new Point(10,10)), (new Point( 110, 110))));
+
         calculateDistanceMatrix();
 
         // First Step: REGIONS
@@ -107,17 +109,35 @@ public class ScanLine implements iImageAlgorithm {
 
     private void leaveAsRegion() {
 
-        iArrayAlgorithm separate = new GetCountourOfRegions( 8 );
-        distanceMatrix = separate.processArray( distanceMatrix );
+        int[][] contourOfRegions;
+        int[][] withoutRegions;
+
+
+
+        /* iArrayAlgorithm invert = new InvertArray();
+        distanceMatrix = invert.processArray( distanceMatrix ); */
+
+        iArrayAlgorithm separate = new RemoveRegions( 4 );
+        withoutRegions = separate.processArray( distanceMatrix );
+
+        iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
+        contourOfRegions = contour.processArray( distanceMatrix );
 
         iSVGAlgorithm search = new SearchLine();
-        SVG s = search.processArray( distanceMatrix );
-        System.out.println( s.getFile() );
-        this.image = s.getImage();
-       /*
-        iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( distanceMatrix );
-        this.image = convertToImage.processImage( null );
-        */
+        SVG contourSVG = search.processArray( contourOfRegions );
+        SVG restSVG = search.processArray( withoutRegions );
+
+        contourSVG.addSVG( restSVG );
+
+
+
+
+        this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
+
+
+        /* iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( lineArray );
+        this.image = convertToImage.processImage( null ); */
+
     }
 
 
@@ -132,4 +152,32 @@ public class ScanLine implements iImageAlgorithm {
     private void divideAsLines() {
 
     }
+
+    /**
+     * returns combined array of the two input arrays (|)
+     * (dont yet know where to put it)
+     */
+    private int[][] combine ( int[][] a1, int[][] a2) {
+
+        int width = a1.length;
+        int height = a1[0].length;
+
+        int[][] c = new int[width][height];
+
+        try {
+            for (int i = 0; i < width; i++)
+                for (int j = 0; j < height; j++) {
+                    if ( (a1[i][j] > 0) || (a2[i][j] > 0) ) {
+                        c[i][j] = 1;
+                    }
+                }
+        }
+        catch (IndexOutOfBoundsException e) {
+            System.out.println(" Combine: Arrays of different size!");
+        }
+
+        return c;
+    }
+
+
 }

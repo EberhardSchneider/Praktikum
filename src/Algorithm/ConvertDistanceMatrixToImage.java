@@ -22,7 +22,7 @@ public class ConvertDistanceMatrixToImage implements iImageAlgorithm {
         BufferedImage result = new BufferedImage( width, height, BufferedImage.TYPE_BYTE_GRAY);
 
         // get maximum in array
-        int max = 0;
+        int max = 1;
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
