@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FillHilbert implements iImageAlgorithm {
 
     // Parameters
-    private int maxIterations = 10;
+    private int maxIterations = 9;
     private int minIterations = 3;
 
     private int lowerThreshold = 50;

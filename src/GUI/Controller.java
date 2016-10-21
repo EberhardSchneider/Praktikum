@@ -62,7 +62,7 @@ public class Controller {
 
     @FXML
     public void buttonLinefillClick() {
-        ivImage.setFitHeight(400);
+        ivImage.setFitHeight(800);
         try {
 
             ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
@@ -123,7 +123,6 @@ public class Controller {
             button_linefill.setDisable( false );
             button_scanline.setDisable( false );
 
-            ivImage.setFitWidth( image.getWidth() );
 
             showImage();
         }
@@ -229,19 +228,11 @@ public class Controller {
     }
 
     public void svgTest() {
-        SVG s = new SVG();
+        ivImage.setFitHeight(800);
 
-        int[] x = { 0, 30, 80, 90, 100 };
-        int[] y = { 0, 500, 200, 0, 50 };
+        BufferedImage image = new BufferedImage(50,50,BufferedImage.TYPE_BYTE_GRAY);
 
-        int nPoints = 5;
-
-        s.addPolygon(x, y, nPoints);
-
-
-
-        Image showImage = SwingFXUtils.toFXImage(s.getImage(150,150), null);
-        ivImage.setImage(showImage);
-        System.out.println( s.getFile() );
+        iImageAlgorithm a = new TestBresenham( ivImage );
+        a.processImage(image);
     }
 }
