@@ -132,7 +132,7 @@ class Point {
             int dx = Math.abs( p1.x - p2.x );
             int dy = Math.abs( p1.y - p2.y );
 
-            difference += (dx + dy);
+            difference += (dx*dx + dy*dy);
         }
 
         return difference;

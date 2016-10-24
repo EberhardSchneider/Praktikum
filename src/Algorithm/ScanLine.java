@@ -1,8 +1,9 @@
 package Algorithm;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import SVG.*;
-
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -15,6 +16,7 @@ import SVG.*;
  * regionHandling: [ region, contourAsLine, fillWithLines, divideLines ]
  */
 public class ScanLine implements iImageAlgorithm {
+
 
     // main attributes
     private BufferedImage image;
@@ -133,13 +135,13 @@ public class ScanLine implements iImageAlgorithm {
 
         System.out.println( contourSVG.getFile() );
 
-        contourSVG.deleteLinesShorterThan( 5 );
+        contourSVG.deleteLinesShorterThan( 2 );
 
         System.out.println( contourSVG.getFile() );
 
 
 
-        this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
+        //this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
 
 
         /* iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( lineArray );

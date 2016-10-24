@@ -7,21 +7,28 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
-import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javafx.scene.image.ImageView;
 import Algorithm.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 /**
@@ -63,37 +70,52 @@ public class Controller {
     @FXML
     public void buttonLinefillClick() {
         ivImage.setFitHeight(800);
+
         try {
+            FXMLLoader loader = new FXMLLoader();
+            Parent page = (Parent)loader.load(getClass().getResource("linefill_param.fxml"));
 
-            ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
-            ///BufferedImage image = ImageIO.read(f);
+            Stage dialogStage = new Stage();
 
-            MakeGrayScale gray = new MakeGrayScale();
-            RemoveAlpha ra = new RemoveAlpha();
-            FillHilbert fh = new FillHilbert();
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            Integer x = -20000;
+            LinefillParamController controller = loader.getController();
 
-
-
-
-            workflow.setAlgorithm(ra);
-            workflow.doAction();
-
-
-            workflow.setAlgorithm(gray);
-            workflow.doAction();
-
-            workflow.setAlgorithm(fh);
-            workflow.doAction();
+            dialogStage.showAndWait();
 
 
-
-
-            showImage();
-        }
-        catch (Exception e) {
-            System.out.print("Couldn't load file.");
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
+        ///BufferedImage image = ImageIO.read(f);
+
+        MakeGrayScale gray = new MakeGrayScale();
+        RemoveAlpha ra = new RemoveAlpha();
+        FillHilbert fh = new FillHilbert();
+
+
+
+
+        workflow.setAlgorithm(ra);
+        workflow.doAction();
+
+
+        workflow.setAlgorithm(gray);
+        workflow.doAction();
+
+        workflow.setAlgorithm(fh);
+        workflow.doAction();
+
+
+
+
+        showImage();
+
     }
 
     /**
@@ -126,7 +148,7 @@ public class Controller {
 
             showImage();
         }
-        catch (Exception e) {
+        catch (IOException e) {
              System.out.println("Error in Load File Dialog");
              e.printStackTrace();
         }
@@ -176,6 +198,7 @@ public class Controller {
 
 
         Slider slider = new Slider();
+        slider.setId("bw_threshold");
         slider.setMin(0);
         slider.setMax(255);
         slider.setValue(180);
@@ -203,8 +226,11 @@ public class Controller {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                // remove slider and Proceed button
+                vboxParam.getChildren().remove( vboxParam.getScene().lookup("#bw_threshold") );
                 vboxParam.getChildren().remove(event.getSource());
+
+                // continue with scanline process
                 scanlineTWO();
                 showImage();
             }
@@ -219,7 +245,7 @@ public class Controller {
 
     public void scanlineTWO() {
 
-        iImageAlgorithm scanline = new ScanLine();
+        iImageAlgorithm scanline = new ScanLine( );
 
         workflow.setAlgorithm( scanline );
         workflow.doAction();
