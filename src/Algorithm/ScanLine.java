@@ -131,7 +131,7 @@ public class ScanLine implements iImageAlgorithm {
         SVG contourSVG = search.processArray( contourOfRegions );
         SVG restSVG = search.processArray( withoutRegions );
 
-        contourSVG.addSVG( restSVG );
+//        contourSVG.addSVG( restSVG );
 
         System.out.println( contourSVG.getFile() );
 
@@ -141,11 +141,11 @@ public class ScanLine implements iImageAlgorithm {
 
 
 
-        //this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
+        this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
 
 
-        /* iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( lineArray );
-        this.image = convertToImage.processImage( null ); */
+        /*iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( withoutRegions );
+        this.image = convertToImage.processImage( null );*/
 
     }
 

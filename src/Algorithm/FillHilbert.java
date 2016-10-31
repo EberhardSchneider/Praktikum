@@ -26,6 +26,11 @@ public class FillHilbert implements iImageAlgorithm {
 
     ColorModel colorModel;
 
+    public FillHilbert( int minIterations, int maxIterations ) {
+        this.minIterations = minIterations;
+        this.maxIterations = maxIterations;
+    }
+
     final static class Point {
 
         int x;

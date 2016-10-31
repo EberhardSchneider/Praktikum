@@ -9,11 +9,17 @@ import java.awt.image.BufferedImage;
 public class FillImageSpiral implements iImageAlgorithm {
 
     private int scale = 15;
+    private int numberOfGraylevels;
 
     static final class Point {
         int x;
         int y;
         int brightness;
+    }
+
+    // Constructor
+    public FillImageSpiral( int numberOfGraylevels ) {
+        this.numberOfGraylevels = numberOfGraylevels;
     }
 
     private Point getPoint(BufferedImage image, int x, int y) {
@@ -92,14 +98,15 @@ public class FillImageSpiral implements iImageAlgorithm {
 
 
 
-        BasicStroke[] stroke = new BasicStroke[15];
-        for (int i = 0; i<15; i++)
-            stroke[i] = new BasicStroke( 16-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
+        BasicStroke[] stroke = new BasicStroke[numberOfGraylevels];
+        for (int i = 0; i<numberOfGraylevels; i++)
+            stroke[i] = new BasicStroke( numberOfGraylevels-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
 
         g.setColor( Color.BLACK );
         for (int i = 1; i < numberOfPoints-1; i++) {
             g.setStroke( stroke[ points[i].brightness ] );
             g.drawLine( points[i-1].x, points[i-1].y, points[i].x, points[i].y);
+
         }
 
         return result;

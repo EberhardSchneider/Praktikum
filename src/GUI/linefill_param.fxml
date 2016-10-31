@@ -21,9 +21,9 @@
 
 <VBox>
     <children>
-        <TabPane prefHeight="300.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="tabpane" prefHeight="300.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Linefill    " >
+                <Tab fx:id="tab_linefill" text="Linefill    " >
                     <content>
                         
                         <HBox spacing="80">
@@ -36,13 +36,16 @@
                                         <Label prefHeight="50">Scan direction</Label>
                                         <RadioButton  mnemonicParsing="false"
                                                      text="Horizontal"
-                                                     toggleGroup="$scanline_direction"/>
+                                                     toggleGroup="$scanline_direction" selected="true"
+                                                      userData="0" />
                                         <RadioButton  mnemonicParsing="false"
                                                      text="Vertical"
-                                                     toggleGroup="$scanline_direction"/>
+                                                     toggleGroup="$scanline_direction"
+                                                      userData="1" />
                                         <RadioButton  mnemonicParsing="false"
                                                      text="Spiral"
-                                                     toggleGroup="$scanline_direction"/>
+                                                     toggleGroup="$scanline_direction"
+                                                      userData="2"/>
                                     </children>
                                 </VBox>
 
@@ -50,7 +53,7 @@
                                     <children >
                                         <Label prefHeight="50">Number of graylevels</Label>
 
-                                        <Slider fx:id="slider_n_graylevels" min="1" max="10" minorTickCount="1"
+                                        <Slider fx:id="slider_n_graylevels" min="4" max="20" minorTickCount="1"
                                                 showTickLabels="true"></Slider>
                                     </children>
 
@@ -62,16 +65,29 @@
                         </HBox>
                     </content>
                 </Tab>
-                <Tab text="Hilbertfill">
+                <Tab fx:id="tab_hilbertfill" text="Hilbertfill" userData="1">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                       <VBox>
+                           <Label>Minimum Iterations:</Label>
+                           <Label fx:id="label_min_iterations">2</Label>
+                           <Slider fx:id="slider_min_iterations" min="2" max="10"
+                                   showTickMarks="true" majorTickUnit="1"
+                                    showTickLabels="true" value="3"></Slider>
+                           <Label>Maximum Iterations:</Label>
+                           <Label fx:id="label_max_iterations">5</Label>
+
+                           <Slider fx:id="slider_max_iterations" min="3" max="12"
+                                   showTickMarks="true" majorTickUnit="1"
+                                   showTickLabels="true" value="7"></Slider>
+
+                       </VBox>
                     </content>
                 </Tab>
             </tabs>
         </TabPane>
         <ButtonBar prefHeight="40.0" prefWidth="200.0">
             <buttons>
-                <Button mnemonicParsing="false" text="Button" />
+                <Button fx:id="button_ok" mnemonicParsing="false" text="Ok" onAction="#buttonOkPressed"/>
             </buttons>
         </ButtonBar>
     </children>

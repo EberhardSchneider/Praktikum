@@ -6,7 +6,13 @@ import java.awt.image.BufferedImage;
 /**
  * Created by eberh_000 on 24.09.2016.
  */
-public class DrawInImage implements iImageAlgorithm {
+public class FillHorizontal implements iImageAlgorithm {
+
+    int numberOfGraylevels;
+
+    public FillHorizontal(int numberOfGraylevels) {
+        this.numberOfGraylevels = numberOfGraylevels;
+    }
     public BufferedImage processImage(BufferedImage image) {
 
         int oldWidth = image.getWidth();
@@ -33,15 +39,15 @@ public class DrawInImage implements iImageAlgorithm {
                 yPoints[index] = yPos;
 
                 int r = ( image.getRGB( (y%2)==0 ? x : oldWidth-x-1, y) >> 16) & 0xFF;
-                brightness[index] = (int)( (float)r / 20f);
+                brightness[index] = (int)( ((float)r / 256f) * numberOfGraylevels );
 
                 index++;
             }
         }
 
-        BasicStroke[] stroke = new BasicStroke[15];
-        for (int i = 0; i<15; i++)
-            stroke[i] = new BasicStroke( 15-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
+        BasicStroke[] stroke = new BasicStroke[numberOfGraylevels];
+        for (int i = 0; i<numberOfGraylevels; i++)
+            stroke[i] = new BasicStroke( numberOfGraylevels+2-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
 
         g.setColor( Color.BLACK );
        for (int i = 1; i < numberOfPoints; i++) {

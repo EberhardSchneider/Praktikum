@@ -72,8 +72,11 @@ public class Controller {
         ivImage.setFitHeight(800);
 
         try {
-            FXMLLoader loader = new FXMLLoader();
-            Parent page = (Parent)loader.load(getClass().getResource("linefill_param.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("linefill_param.fxml"));
+            Parent page = loader.load();
+
+            LinefillParamController controller = loader.getController();
+
 
             Stage dialogStage = new Stage();
 
@@ -81,35 +84,69 @@ public class Controller {
             dialogStage.setScene(scene);
             dialogStage.initModality(Modality.APPLICATION_MODAL);
             Integer x = -20000;
-            LinefillParamController controller = loader.getController();
+
 
             dialogStage.showAndWait();
+
+
+            iImageAlgorithm fillAlgorithm = null;
+
+            switch ((int)controller.getFill()) {
+                case 0: // Scanline
+                    System.out.println("Scanline!");
+                    int direction = controller.getLineDirection();
+                    switch (direction) {
+                        case 0:
+                            System.out.println("Horizontal!");
+
+                            fillAlgorithm = new FillHorizontal(controller.getNumberOfGrayLevels());
+                            break;
+                        case 1:
+                            System.out.println("vertical!");
+
+                            fillAlgorithm = new FillVertical(controller.getNumberOfGrayLevels());
+                            break;
+                        case 2:
+                            System.out.println("spiral!");
+
+                            fillAlgorithm = new FillImageSpiral(controller.getNumberOfGrayLevels());
+                            break;
+                    }
+                    break;
+                case 1: // Fillhilbert
+                    System.out.println("Fillhilbert!");
+
+                    int minIterations = controller.getMinIterations();
+                    int maxIterations = controller.getMaxIterations();
+                    fillAlgorithm = new FillHilbert(minIterations, maxIterations);
+
+            }
+
+
+                ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
+                ///BufferedImage image = ImageIO.read(f);
+
+                MakeGrayScale gray = new MakeGrayScale();
+                RemoveAlpha ra = new RemoveAlpha();
+
+
+
+
+                workflow.setAlgorithm(ra);
+                workflow.doAction();
+
+
+                workflow.setAlgorithm(gray);
+                workflow.doAction();
+
+                workflow.setAlgorithm(fillAlgorithm);
+                workflow.doAction();
+
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
-        ///BufferedImage image = ImageIO.read(f);
-
-        MakeGrayScale gray = new MakeGrayScale();
-        RemoveAlpha ra = new RemoveAlpha();
-        FillHilbert fh = new FillHilbert();
-
-
-
-
-        workflow.setAlgorithm(ra);
-        workflow.doAction();
-
-
-        workflow.setAlgorithm(gray);
-        workflow.doAction();
-
-        workflow.setAlgorithm(fh);
-        workflow.doAction();
 
 
 

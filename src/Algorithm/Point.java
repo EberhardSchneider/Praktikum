@@ -64,8 +64,8 @@ class Point {
         int xEnd = xPos < (width - 1) ? xPos+1 : xPos;
         int yEnd = yPos < (height - 1) ? yPos+1 : yPos;
 
-        for (int x = xStart; x <= xEnd; x++)
-            for (int y = yStart; y <= yEnd; y++) {
+        for (int x = xEnd; x >= xStart; x--)
+            for (int y = yEnd; y >= yStart; y--) {
                 if ( (array[x][y] != 0) && ( (xPos != x) || ( yPos != y) ) )
                     neighbours.add( new Point( x, y) );
             }
