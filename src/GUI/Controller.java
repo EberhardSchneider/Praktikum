@@ -32,7 +32,8 @@ import javafx.stage.Stage;
 
 
 /**
- * Created by eberh_000 on 21.09.2016.
+ * FXML Controller class of Main GUI.
+ * Implements main functionality.
  */
 public class Controller {
 
@@ -45,6 +46,9 @@ public class Controller {
     VBox vboxParam;
 
 
+    /**
+     * Holds the states with images and algorithms to  process them.
+     */
     Command workflow = new Command();
 
 
@@ -61,9 +65,9 @@ public class Controller {
 
 
     /**
-     * Should open a dialogue for the Linefill Parameters,
-     * then proceed with the processing.
-     * In the Moment it just does a Linefill with set parameters.
+     * Opens a dialogue for the Linefill operation,
+     * then proceeds with the processing.
+     *
      * Gets called when #buttonLinefill is clicked.
      */
 
@@ -75,20 +79,19 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("linefill_param.fxml"));
             Parent page = loader.load();
 
+            // get FXML Controller, to retrieve the parameters from GUI later
             LinefillParamController controller = loader.getController();
 
-
+            // open dialog
             Stage dialogStage = new Stage();
-
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             dialogStage.initModality(Modality.APPLICATION_MODAL);
             Integer x = -20000;
 
-
             dialogStage.showAndWait();
 
-
+            // retrieve algorithm, and its parameters from GUI
             iImageAlgorithm fillAlgorithm = null;
 
             switch ((int)controller.getFill()) {
@@ -96,51 +99,48 @@ public class Controller {
                     System.out.println("Scanline!");
                     int direction = controller.getLineDirection();
                     switch (direction) {
-                        case 0:
-                            System.out.println("Horizontal!");
-
+                        case 0: // horizontal
                             fillAlgorithm = new FillHorizontal(controller.getNumberOfGrayLevels());
                             break;
-                        case 1:
-                            System.out.println("vertical!");
-
+                        case 1: // vertical
                             fillAlgorithm = new FillVertical(controller.getNumberOfGrayLevels());
                             break;
-                        case 2:
-                            System.out.println("spiral!");
-
+                        case 2: // spiral
                             fillAlgorithm = new FillImageSpiral(controller.getNumberOfGrayLevels());
                             break;
                     }
                     break;
                 case 1: // Fillhilbert
-                    System.out.println("Fillhilbert!");
 
                     int minIterations = controller.getMinIterations();
                     int maxIterations = controller.getMaxIterations();
+                    System.out.println( "Min:" + minIterations + "  Max:  " + maxIterations );
                     fillAlgorithm = new FillHilbert(minIterations, maxIterations);
-
             }
 
 
                 ///File f = new File("C:\\Users\\eberh_000\\tiger.png");
                 ///BufferedImage image = ImageIO.read(f);
 
+                // in every case:
+                // 1. transform image in grayscale format
+                // 2. remove alpha channel
+
                 MakeGrayScale gray = new MakeGrayScale();
                 RemoveAlpha ra = new RemoveAlpha();
-
-
-
 
                 workflow.setAlgorithm(ra);
                 workflow.doAction();
 
-
                 workflow.setAlgorithm(gray);
                 workflow.doAction();
 
+                // now use the chosen algorithm
+
                 workflow.setAlgorithm(fillAlgorithm);
                 workflow.doAction();
+
+                showImage();
 
 
 
@@ -148,19 +148,16 @@ public class Controller {
             e.printStackTrace();
         }
 
-
-
-
-        showImage();
-
     }
 
     /**
      * Loads an image file and starts a new command workflow with the image in its first state.
-     * Gets called when the #buttonLoad Button is clicked.
+     * Is called when the #buttonLoad Button is clicked.
      */
     @FXML
     public void buttonLoadClick() {
+
+        // create file dialog
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Image");
         fileChooser.setInitialDirectory(new File("C:\\Users\\eberh_000"));
@@ -169,8 +166,6 @@ public class Controller {
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
                 new FileChooser.ExtensionFilter("PNG", "*.png")
         );
-
-
 
         try {
             // Open File Dialog and reset workflow to new image
@@ -181,7 +176,6 @@ public class Controller {
             // enable the linefill and scanline button
             button_linefill.setDisable( false );
             button_scanline.setDisable( false );
-
 
             showImage();
         }
@@ -282,7 +276,9 @@ public class Controller {
 
     public void scanlineTWO() {
 
-        iImageAlgorithm scanline = new ScanLine( );
+        ScanLine scanline = new ScanLine( );
+        //for testing:
+        scanline.setImageView( ivImage );
 
         workflow.setAlgorithm( scanline );
         workflow.doAction();

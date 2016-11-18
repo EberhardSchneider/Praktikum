@@ -11,7 +11,6 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
 
     public int[][] processArray(int[][] array) {
 
-        Logger log = Logger.getLogger( CalculateDistanceMatrix.class.getName() );
 
         if ( ( array == null) || ( array[0] == null )) return null;
 
@@ -20,7 +19,7 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
 
 
         int[][] I = new int[width][height];
-        int[][] D = new int[width][height];
+        int[][] D = new int[width][height]; // distance matrix
 
         // First pass of algorithm
         for (int j = 0; j < height; j++)
@@ -61,6 +60,14 @@ public class CalculateDistanceMatrix implements iArrayAlgorithm {
         return D;
     }
 
+
+    /**
+     * return minimum of three integer values.
+     * @param value1
+     * @param value2
+     * @param value3
+     * @return minimum
+     */
     private int  min3(int value1, int value2, int value3) {
         int minTmp = Math.min( value1, value2 );
         return Math.min( value3, minTmp);

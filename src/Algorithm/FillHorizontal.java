@@ -9,16 +9,18 @@ import java.awt.image.BufferedImage;
 public class FillHorizontal implements iImageAlgorithm {
 
     int numberOfGraylevels;
+    int scale = 30;
 
     public FillHorizontal(int numberOfGraylevels) {
         this.numberOfGraylevels = numberOfGraylevels;
     }
+
     public BufferedImage processImage(BufferedImage image) {
 
         int oldWidth = image.getWidth();
         int oldHeight = image.getHeight();
 
-        BufferedImage result = new BufferedImage( oldWidth * 15, oldHeight*15, image.getType() );
+        BufferedImage result = new BufferedImage( oldWidth * scale, oldHeight * scale, image.getType() );
 
         Graphics2D g = result.createGraphics();
 
@@ -32,8 +34,8 @@ public class FillHorizontal implements iImageAlgorithm {
 
         for (int y = 0; y < oldHeight; y++) {
             for (int x = 0; x < oldWidth; x++) {
-                int yPos = y * 15;
-                int xPos = ( (y%2) == 0) ? x * 15 : oldWidth*15 - x * 15;
+                int yPos = y * scale;
+                int xPos = ( (y%2) == 0) ? x * scale  : oldWidth * scale  - x * scale ;
 
                 xPoints[index] = xPos;
                 yPoints[index] = yPos;
@@ -47,9 +49,8 @@ public class FillHorizontal implements iImageAlgorithm {
 
         BasicStroke[] stroke = new BasicStroke[numberOfGraylevels];
         for (int i = 0; i<numberOfGraylevels; i++)
-            stroke[i] = new BasicStroke( numberOfGraylevels+2-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
-
-        g.setColor( Color.BLACK );
+            stroke[i] = new BasicStroke( i , BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
+        g.setColor( Color.WHITE );
        for (int i = 1; i < numberOfPoints; i++) {
            g.setStroke( stroke[ brightness[i] ] );
             g.drawLine( xPoints[i-1], yPoints[i-1], xPoints[i], yPoints[i]);

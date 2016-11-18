@@ -98,6 +98,9 @@ public class LinefillParamController {
 
         // get information from hilbertfill tab
 
+        this.minIterations = (int)slider_min_iterations.getValue();
+        this.maxIterations = (int)slider_max_iterations.getValue();
+
 
         Stage stage = (Stage)button_ok.getScene().getWindow();
         stage.close();

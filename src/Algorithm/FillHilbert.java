@@ -75,7 +75,8 @@ public class FillHilbert implements iImageAlgorithm {
 
     void hilbertIteration( double x, double y, double xi, double yi, double xj, double yj, int n) {
 
-       if ( (n == 0)   || (n < maxIterations - minIterations) && (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) > 109 + n*200/maxIterations))
+       if ( (n == 0)   || (n < maxIterations - minIterations) &&
+               (getBrightnessOfQuadrant( x, y, xi+yi, xj+yj ) > 109 + n*200/maxIterations))
            points.add(new Point((int) (x + (xi + yi) / 2), (int) (y + (xj + yj) / 2)));
        else {
 
@@ -99,6 +100,7 @@ public class FillHilbert implements iImageAlgorithm {
         BufferedImage result = new BufferedImage( scale * width, scale * height, image.getType() );
 
         Graphics2D g = result.createGraphics();
+        g.setBackground( Color.BLACK );
         g.setPaint( Color.WHITE );
         g.fillRect( 0,0, scale * width, scale * height );
 

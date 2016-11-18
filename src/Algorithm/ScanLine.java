@@ -17,6 +17,11 @@ import javafx.scene.image.ImageView;
  */
 public class ScanLine implements iImageAlgorithm {
 
+    // for test purposes:
+    ImageView iv;
+
+    public void setImageView(ImageView i) { this.iv = i; }
+
 
     // main attributes
     private BufferedImage image;
@@ -127,7 +132,7 @@ public class ScanLine implements iImageAlgorithm {
         iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
         contourOfRegions = contour.processArray( distanceMatrix );
 
-        iSVGAlgorithm search = new SearchLine();
+        iSVGAlgorithm search = new TestSearchLine( iv );
         SVG contourSVG = search.processArray( contourOfRegions );
         SVG restSVG = search.processArray( withoutRegions );
 

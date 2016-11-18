@@ -29,7 +29,7 @@ public class FillImageSpiral implements iImageAlgorithm {
         p.y = y * scale;
 
         int r = ( image.getRGB(  x, y) >> 16) & 0xFF;
-        p.brightness = (int)( (float)r / 20f);
+        p.brightness = (int)( (float)r * numberOfGraylevels / 256f);
 
         return p;
     }
@@ -100,9 +100,9 @@ public class FillImageSpiral implements iImageAlgorithm {
 
         BasicStroke[] stroke = new BasicStroke[numberOfGraylevels];
         for (int i = 0; i<numberOfGraylevels; i++)
-            stroke[i] = new BasicStroke( numberOfGraylevels-i, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
+            stroke[i] = new BasicStroke( i+1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
 
-        g.setColor( Color.BLACK );
+        g.setColor( Color.WHITE );
         for (int i = 1; i < numberOfPoints-1; i++) {
             g.setStroke( stroke[ points[i].brightness ] );
             g.drawLine( points[i-1].x, points[i-1].y, points[i].x, points[i].y);

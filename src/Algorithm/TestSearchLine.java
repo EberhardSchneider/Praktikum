@@ -49,7 +49,6 @@ public class TestSearchLine implements iSVGAlgorithm {
             for (int y = 0; y < height; y++) {
                 testImage.setRGB(x,y,0xFF);
             }
-        promptEnterKey();
         ArrayList<Polyline> polylines = new ArrayList<>();
 
         /*
@@ -66,9 +65,10 @@ public class TestSearchLine implements iSVGAlgorithm {
 
         for (int y = 0; y < height; y++)
             for (int x = 0; x < width; x++) {
-
+                testImage.setRGB( x, y, 0xF );
+                showImage();
                 if (array[x][y] != 0) {
-
+                promptEnterKey();
                     ArrayList<Point> visitedPixels = new ArrayList<>();
 
                     Polyline currentPolyline = new Polyline();

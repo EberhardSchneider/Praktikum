@@ -67,7 +67,7 @@ public class SearchLine implements iSVGAlgorithm {
                         ArrayList<Point> idealLine = startingPoint.bresenham( firstNeighbour );
 
                         // if difference between bresenham-Line and visited Pixels is too great
-                        if ( Point.difference( idealLine, visitedPixels ) > 3) {
+                        if ( Point.difference( idealLine, visitedPixels ) > 1) {
                             System.out.println("Difference too great!");
 
                             Point endPoint = visitedPixels.get(visitedPixels.size() - 2);
