@@ -1,6 +1,5 @@
 package Algorithm;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import SVG.*;
 import javafx.scene.image.ImageView;
@@ -132,22 +131,22 @@ public class ScanLine implements iImageAlgorithm {
         iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
         contourOfRegions = contour.processArray( distanceMatrix );
 
-        iSVGAlgorithm search = new TestSearchLine( iv );
+        iSVGAlgorithm search = new TSearchLine();
         SVG contourSVG = search.processArray( contourOfRegions );
         SVG restSVG = search.processArray( withoutRegions );
 
 //        contourSVG.addSVG( restSVG );
 
-        System.out.println( contourSVG.getFile() );
+        if ( contourSVG != null) {
+            System.out.println(contourSVG.getFile());
 
-        contourSVG.deleteLinesShorterThan( 2 );
+            contourSVG.deleteLinesShorterThan(2);
 
-        System.out.println( contourSVG.getFile() );
+            System.out.println(contourSVG.getFile());
 
 
-
-        this.image = contourSVG.getImage( this.image.getWidth(), this.image.getHeight());
-
+            this.image = contourSVG.getImage(this.image.getWidth(), this.image.getHeight());
+        }
 
         /*iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( withoutRegions );
         this.image = convertToImage.processImage( null );*/

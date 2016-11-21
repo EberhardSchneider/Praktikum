@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane fx:id="gridpaneMain" alignment="center" hgap="10" prefHeight="886.0" prefWidth="1157.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+<GridPane fx:id="gridpaneMain" alignment="center" hgap="10" prefHeight="886.0" prefWidth="1157.0" vgap="10"
+          xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="GUI.Controller">
    <children>
 
       <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="628.0" prefWidth="912.0" GridPane.columnIndex="1">
