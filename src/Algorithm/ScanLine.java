@@ -20,7 +20,7 @@ public class ScanLine implements iImageAlgorithm {
     // for test purposes:
     ImageView iv;
 
-    public void setImageView(ImageView i) { this.iv = i; }
+    public void setImageView(ImageView i) { this.iv = i; System.out.println( iv.toString()); }
 
 
     // main attributes

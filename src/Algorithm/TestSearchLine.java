@@ -34,6 +34,8 @@ public class TestSearchLine implements iSVGAlgorithm {
 
     public SVG processArray( int[][] array ) {
 
+        // Open new Window to Show Debugging!
+
 
 
         width = array.length;
@@ -44,7 +46,6 @@ public class TestSearchLine implements iSVGAlgorithm {
         testImage = new BufferedImage( width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = testImage.createGraphics();
         showImage();
-        promptEnterKey();
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++) {
                 testImage.setRGB(x,y,0xFF);
@@ -68,7 +69,9 @@ public class TestSearchLine implements iSVGAlgorithm {
                 testImage.setRGB( x, y, 0xF );
                 showImage();
                 if (array[x][y] != 0) {
-                promptEnterKey();
+                    for (int i = 0; i < 1000000; i++) {
+                        float j = (float)Math.sqrt( i );
+                    }
                     ArrayList<Point> visitedPixels = new ArrayList<>();
 
                     Polyline currentPolyline = new Polyline();
@@ -135,7 +138,6 @@ public class TestSearchLine implements iSVGAlgorithm {
 
                 }
             }
-    promptEnterKey();
         int index = 0;
         // Algorithm to smooth polylines
         for (Polyline poly : polylines) {
@@ -181,7 +183,9 @@ public class TestSearchLine implements iSVGAlgorithm {
 
     void showImage() {
         javafx.scene.image.Image showImage = SwingFXUtils.toFXImage(this.testImage, null);
-        imageView.setImage(showImage);
+        imageView.setImage( showImage );
+        imageView.requestFocus();
+        System.out.println("New Image shown at: " + imageView.toString() );
     }
 
     public void promptEnterKey(){

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="linefind:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/linefind_jar</output-path>
+    <root id="archive" name="linefind.jar">
+      <element id="module-output" name="linefind" />
+    </root>
+  </artifact>
+</component>
