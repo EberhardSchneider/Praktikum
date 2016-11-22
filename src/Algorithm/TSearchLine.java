@@ -176,13 +176,12 @@ public class TSearchLine implements iSVGAlgorithm {
                             catch (InterruptedException e) {
 
                             }
-                            g.drawOval(firstNeighbour.x,firstNeighbour.y,1,1);
-                            showImage();
+
                             // Calculate Bresenham-Line from fist pixel in array to last found pixel
                             ArrayList<Point> idealLine = startingPoint.bresenham( firstNeighbour );
 
                             // if difference between bresenham-Line and visited Pixels is too great
-                            if ( Point.difference( idealLine, visitedPixels ) > 5) {
+                            if ( Point.difference( idealLine, visitedPixels ) > 15) {
                                 System.out.println("Difference too great!");
 
                                 Point endPoint = visitedPixels.get(visitedPixels.size() - 2);
@@ -195,6 +194,10 @@ public class TSearchLine implements iSVGAlgorithm {
                                 array[p.x][p.y] = 0;
                             }*/
                                 // new starting point, delete visitedPixels
+                                g.setColor(Color.red);
+                                g.drawOval(endPoint.x, endPoint.y, 3,3);
+                                showImage();
+
 
 
                                 pixel = visitedPixels.get( visitedPixels.size() - 1);
@@ -205,6 +208,9 @@ public class TSearchLine implements iSVGAlgorithm {
                                 firstNeighbour = pixel.getFirstNeighbour( array );
                             }
                             else {
+                                g.setColor(Color.black);
+                                g.drawOval(firstNeighbour.x, firstNeighbour.y, 1,1);
+                                showImage();
                                 visitedPixels.add( firstNeighbour  );
                                 array[pixel.x][pixel.y] = 0;
                                 pixel = firstNeighbour;

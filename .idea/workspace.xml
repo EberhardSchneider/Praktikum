@@ -74,7 +74,7 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="1156">
               <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -96,7 +96,7 @@
       <file leaf-file-name="ScanLine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithm/ScanLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="2414">
               <caret line="148" column="9" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
               <folding />
             </state>
@@ -106,8 +106,8 @@
       <file leaf-file-name="TSearchLine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Algorithm/TSearchLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="173" column="47" selection-start-line="173" selection-start-column="47" selection-end-line="173" selection-end-column="47" />
+            <state relative-caret-position="205">
+              <caret line="197" column="70" selection-start-line="197" selection-start-column="70" selection-end-line="197" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -841,11 +841,13 @@
       <workItem from="1479745799445" duration="2232000" />
       <workItem from="1479753139511" duration="4336000" />
       <workItem from="1479758232424" duration="370000" />
+      <workItem from="1479767132080" duration="453000" />
+      <workItem from="1479810938836" duration="376000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219407000" />
+    <option name="totallyTimeSpent" value="220236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1019,12 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3168">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#515#516#0" expanded="false" />
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,13 +1077,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/linefill_param.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2442">
           <caret line="74" column="77" selection-start-line="74" selection-start-column="77" selection-end-line="74" selection-end-column="77" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/LinefillParamController.java">
@@ -1182,9 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1211,14 +1204,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/gui.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/SearchLine.java">
@@ -1234,7 +1227,7 @@
     <entry file="file://$PROJECT_DIR$/src/Algorithm/test_window.fxml" />
     <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="1156">
           <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1244,7 +1237,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/ScanLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="2414">
           <caret line="148" column="9" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
           <folding />
         </state>
@@ -1252,8 +1245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/TSearchLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="173" column="47" selection-start-line="173" selection-start-column="47" selection-end-line="173" selection-end-column="47" />
+        <state relative-caret-position="205">
+          <caret line="197" column="70" selection-start-line="197" selection-start-column="70" selection-end-line="197" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
