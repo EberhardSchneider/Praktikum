@@ -230,7 +230,7 @@ public class Controller {
 
         Slider slider = new Slider();
         slider.setId("bw_threshold");
-        slider.setMin(0);
+        slider.setMin(1);
         slider.setMax(255);
         slider.setValue(180);
         slider.setShowTickLabels(true);
@@ -243,11 +243,9 @@ public class Controller {
 
                 if ( oldValue == newValue ) return;
                 workflow.undoAction();
-                System.out.println("Undo");
 
                 workflow.setAlgorithm( new MakeBlackWhite( (int)Math.round(newValue.doubleValue()) ) );
                 workflow.doAction();
-                System.out.println("Do with threshold = " + (int)Math.round(newValue.doubleValue()));
 
                 showImage();
             }

@@ -17,8 +17,8 @@ public class ConvertArrayToImage implements iImageAlgorithm {
 
     public BufferedImage processImage(BufferedImage image) {
 
-        int height = array.length;
-        int width = array[0].length;
+        int width = array.length;
+        int height = array[0].length;
 
         BufferedImage result = new BufferedImage( width, height, BufferedImage.TYPE_BYTE_GRAY);
 
@@ -28,9 +28,9 @@ public class ConvertArrayToImage implements iImageAlgorithm {
 
 
                 if ( array[i][j] == 1) {
-                    result.setRGB( i, j, 0xFFFFFF );
+                    result.setRGB( i, j, 0x0 );
                 } else
-                    result.setRGB( i, j, 0 );
+                    result.setRGB( i, j, 0xFFFFFF );
 
             }
 

@@ -54,7 +54,7 @@ public class RemoveRegions implements iArrayAlgorithm {
 
 
         // first step:
-        // put all pixels with distance value n-1 which have neighbours
+        // put all pixels with distance value greater than n-1 which have neighbours
         // with distance value n in list l_n
         // then put all pixels with distance value n-2 which have
         // neighbours in list l_n in list l_(n-1) (go through list l_(n-1)
@@ -80,10 +80,11 @@ public class RemoveRegions implements iArrayAlgorithm {
 
 
             // loop through all distance values from l_t-1 to 1
-        for ( int distanceValue = line_thickness-1; distanceValue > 0; distanceValue-- ) {
+        for ( int distanceValue = line_thickness-2; distanceValue > 0; distanceValue-- ) {
             // loop through region and store points in neighbourhood with right distance value
             SetOfPoints newPoints = new SetOfPoints();
             for (Point p : region) {
+
                 // get all Points in neighbourhood with right distance value
                 int xPos = p.x;
                 int yPos = p.y;
@@ -95,8 +96,9 @@ public class RemoveRegions implements iArrayAlgorithm {
 
                 for (int x = xStart; x <= xEnd; x++)
                     for (int y = yStart; y <= yEnd; y++)
-                        if ( (array[x][y] == distanceValue) && ( (xPos != x) && ( yPos != y) ) )
-                            newPoints.add( new Point( x, y ));
+                        if ( (array[x][y] == distanceValue) && ( (xPos != x) && ( yPos != y) ) ) {
+                            newPoints.add(new Point(x, y));
+                        }
             }
 
             // now merge region with newPoints
@@ -107,7 +109,6 @@ public class RemoveRegions implements iArrayAlgorithm {
 
         for (Point p : region) {
             result[p.x][p.y] = 0;
-
         }
 
         // return original array without regions

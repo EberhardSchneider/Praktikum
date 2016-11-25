@@ -77,7 +77,6 @@ public class ScanLine implements iImageAlgorithm {
 
         this.image = image;
 
-        System.out.println( (new Point( 110, 10)).distanceFromLine( (new Point(10,10)), (new Point( 110, 110))));
 
         calculateDistanceMatrix();
 
@@ -125,31 +124,25 @@ public class ScanLine implements iImageAlgorithm {
         /* iArrayAlgorithm invert = new InvertArray();
         distanceMatrix = invert.processArray( distanceMatrix ); */
 
-        iArrayAlgorithm separate = new RemoveRegions( 4 );
+        iArrayAlgorithm separate = new RemoveRegions( 3 );
         withoutRegions = separate.processArray( distanceMatrix );
 
-        iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
-        contourOfRegions = contour.processArray( distanceMatrix );
+        //iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
+        //contourOfRegions = contour.processArray( distanceMatrix );
 
-        iSVGAlgorithm search = new TSearchLine();
-        SVG contourSVG = search.processArray( contourOfRegions );
-        SVG restSVG = search.processArray( withoutRegions );
+        iArrayAlgorithm skelet = new SkeletonizeMatrix();
+        int[][] s = skelet.processArray( array );
 
-//        contourSVG.addSVG( restSVG );
-
-        if ( contourSVG != null) {
-            System.out.println(contourSVG.getFile());
-
-            contourSVG.deleteLinesShorterThan(2);
-
-            System.out.println(contourSVG.getFile());
+        iImageAlgorithm i = new ConvertArrayToImage( s );
+        image = i.processImage( null );
 
 
-            this.image = contourSVG.getImage(this.image.getWidth(), this.image.getHeight());
-        }
 
-        /*iImageAlgorithm convertToImage = new ConvertDistanceMatrixToImage( withoutRegions );
-        this.image = convertToImage.processImage( null );*/
+
+
+
+
+
 
     }
 

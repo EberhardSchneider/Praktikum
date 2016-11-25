@@ -26,8 +26,13 @@ public class MakeBlackWhite implements iImageAlgorithm {
 
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++) {
-                int greenValue =  ( image.getRGB( x/scale, y/scale) >> 8 ) & 0xFF;
-                int grayValue = (int)(greenValue * (1 / 0.587));
+                int argb = image.getRGB( x / scale, y / scale);
+                int alpha = (argb >> 24 ) & 0xFF;
+                int red = (argb >> 16) & 0xFF;
+                int green = (argb >> 8) & 0xFF;
+                int blue = (argb ) & 0xFF;
+                int grayValue = (int)(red * 0.299 + green * 0.587 + blue * 0.114);
+
 
 
                 if ( grayValue > threshold) {
