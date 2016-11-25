@@ -150,4 +150,55 @@ class Point {
         distance /= Math.sqrt( Math.pow( (p2.y - p1.y), 2 ) + Math.pow( (p2.x - p1.x ), 2 ) );
         return distance;
     }
+
+    /**
+     * If Point is in neighbourhood of instance this function returns the direction in which it lies
+     *          4 3 2
+     *          5 * 1
+     *          6 7 8
+     * @param neighbour Point
+     * @return int, which represents the direction or -1 if neighbour is not a valid neighbour
+     */
+    public int getDirection( Point neighbour ) {
+        // check if neighbour really is a neighbour
+        int diffX = Math.abs( this.x - neighbour.x);
+        int diffY = Math.abs( this.y - neighbour.y);
+
+        if ((diffX > 1) || (diffY > 1) || ( (diffX == 0) && (diffY) == 0)) {
+            // either the distance is too great, or zero
+            return -1;
+        }
+
+        if (diffX == 1) {
+            switch ( diffY ) {
+                case -1:
+                    return 2;
+                case 0:
+                    return 1;
+                case 1:
+                    return 8;
+            }
+        }
+        else if (diffX == 0) {
+            switch (diffY) {
+                case -1:
+                    return 3;
+                case 1:
+                    return 7;
+            }
+        }
+        else {  // (diffX == 1)
+            switch (diffY) {
+                case -1:
+                    return 4;
+                case 0:
+                    return 5;
+                case 1:
+                    return 6;
+            }
+
+        }
+
+        return -1;
+    }
 }
