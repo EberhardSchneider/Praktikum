@@ -15,7 +15,7 @@ import java.util.Scanner;
 /**
  * Now it's getting serious!
  */
-public class TSearchLine implements iSVGAlgorithm {
+public class TSearchLine implements iVectorAlgorithm {
 
     VectorImage vectorImage = new VectorImage();
     BufferedImage testImage;

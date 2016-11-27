@@ -9,107 +9,23 @@
     <bookmark url="file://$PROJECT_DIR$/src/Algorithm/MakeRaster.java" line="37" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vector/Line.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vector/Polygon.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vector/Polyline.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vector/iVectorElement.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG$Line.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG$Polygon.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG$Polyline.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG$SVGElement.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/SVG/SVG.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/SVG/SVG.java" afterPath="$PROJECT_DIR$/src/Vector/VectorImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/linefind_jar/linefind.jar" afterPath="$PROJECT_DIR$/out/artifacts/linefind_jar/linefind.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/CalculateDistanceMatrix.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/CalculateDistanceMatrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertDistanceMatrixToImage.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertDistanceMatrixToImage.class" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Vector statt SVG">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/iSVGAlgorithm.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" afterPath="$PROJECT_DIR$/src/Algorithm/iVectorAlgorithm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertImageToArray.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertImageToArray.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHilbert$Point.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHilbert$Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHilbert.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHilbert.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHorizontal.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillHorizontal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillImageSpiral$Point.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillImageSpiral$Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillImageSpiral.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillImageSpiral.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillVertical.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/FillVertical.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions$Point.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions$Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions$SetOfPoints.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions$SetOfPoints.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/GetCountourOfRegions.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/HilbertTest.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/HilbertTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/InvertArray.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/InvertArray.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeBlackWhite.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeBlackWhite.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeGrayScale.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeGrayScale.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeRaster.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/MakeRaster.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/Point.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveAlpha.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveAlpha.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions$Point.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions$Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions$SetOfPoints.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions$SetOfPoints.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/RemoveRegions.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScaleDown.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScaleDown.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScanLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScanLine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine$Polyline.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine$Polyline.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/StaticArrayImage.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/StaticArrayImage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine$Calculate.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine$Calculate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine$Polyline.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine$Polyline.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/TestBresenham.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/TestBresenham.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/iImageAlgorithm.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/iImageAlgorithm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/iSVGAlgorithm.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/iSVGAlgorithm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/Command.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/Command.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/Controller$1.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/Controller$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/Controller$2.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/Controller$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/Controller.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/DialogLinefill.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/DialogLinefill.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/HilbertfillParameters.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/HilbertfillParameters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController$1.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController$2.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParamController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParameters.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/LinefillParameters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/Main.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/State.class" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/State.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/linefind_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/linefind_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/gui.fxml" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/gui.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/GUI/linefill_param.fxml" afterPath="$PROJECT_DIR$/out/production/linefind/GUI/linefill_param.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/linefind/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/CalculateDistanceMatrix.java" afterPath="$PROJECT_DIR$/src/Algorithm/CalculateDistanceMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/ConvertDistanceMatrixToImage.java" afterPath="$PROJECT_DIR$/src/Algorithm/ConvertDistanceMatrixToImage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" afterPath="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FillHilbert.java" afterPath="$PROJECT_DIR$/src/Algorithm/FillHilbert.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FillHorizontal.java" afterPath="$PROJECT_DIR$/src/Algorithm/FillHorizontal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FillImageSpiral.java" afterPath="$PROJECT_DIR$/src/Algorithm/FillImageSpiral.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FillVertical.java" afterPath="$PROJECT_DIR$/src/Algorithm/FillVertical.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FindLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/FindLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/GetCountourOfRegions.java" afterPath="$PROJECT_DIR$/src/Algorithm/GetCountourOfRegions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/HilbertTest.java" afterPath="$PROJECT_DIR$/src/Algorithm/HilbertTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/InvertArray.java" afterPath="$PROJECT_DIR$/src/Algorithm/InvertArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/MakeBlackWhite.java" afterPath="$PROJECT_DIR$/src/Algorithm/MakeBlackWhite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java" afterPath="$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/MakeRaster.java" afterPath="$PROJECT_DIR$/src/Algorithm/MakeRaster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/Point.java" afterPath="$PROJECT_DIR$/src/Algorithm/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/RemoveAlpha.java" afterPath="$PROJECT_DIR$/src/Algorithm/RemoveAlpha.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/RemoveRegions.java" afterPath="$PROJECT_DIR$/src/Algorithm/RemoveRegions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/ScanLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/ScanLine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/SearchLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/SearchLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/StaticArrayImage.java" afterPath="$PROJECT_DIR$/src/Algorithm/StaticArrayImage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/TSearchLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/TSearchLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/TestBresenham.java" afterPath="$PROJECT_DIR$/src/Algorithm/TestBresenham.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/iImageAlgorithm.java" afterPath="$PROJECT_DIR$/src/Algorithm/iImageAlgorithm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" afterPath="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Command.java" afterPath="$PROJECT_DIR$/src/GUI/Command.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Controller.java" afterPath="$PROJECT_DIR$/src/GUI/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/DialogLinefill.java" afterPath="$PROJECT_DIR$/src/GUI/DialogLinefill.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/HilbertfillParameters.java" afterPath="$PROJECT_DIR$/src/GUI/HilbertfillParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/LinefillParamController.java" afterPath="$PROJECT_DIR$/src/GUI/LinefillParamController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/LinefillParameters.java" afterPath="$PROJECT_DIR$/src/GUI/LinefillParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Main.java" afterPath="$PROJECT_DIR$/src/GUI/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/State.java" afterPath="$PROJECT_DIR$/src/GUI/State.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/gui.fxml" afterPath="$PROJECT_DIR$/src/GUI/gui.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/linefill_param.fxml" afterPath="$PROJECT_DIR$/src/GUI/linefill_param.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix/ConvertImageToMatrix.java" afterPath="$PROJECT_DIR$/src/Matrix/ConvertImageToMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix/DistanceMatrix.java" afterPath="$PROJECT_DIR$/src/Matrix/DistanceMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix/iMatrixAlgorithm.java" afterPath="$PROJECT_DIR$/src/Matrix/iMatrixAlgorithm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Line.java" afterPath="$PROJECT_DIR$/src/Vector/Line.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Polygon.java" afterPath="$PROJECT_DIR$/src/Vector/Polygon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Polyline.java" afterPath="$PROJECT_DIR$/src/Vector/Polyline.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/VectorImage.java" afterPath="$PROJECT_DIR$/src/Vector/VectorImage.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -175,18 +91,18 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7029">
-              <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
+            <state relative-caret-position="-686">
+              <caret line="247" column="11" selection-start-line="247" selection-start-column="11" selection-end-line="247" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MakeGrayScale.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java">
+      <file leaf-file-name="MakeBlackWhite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeBlackWhite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="24" selection-end-column="67" />
+            <state relative-caret-position="397">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="33" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -195,8 +111,38 @@
       <file leaf-file-name="ScanLine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithm/ScanLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3993">
+            <state relative-caret-position="2410">
               <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculateDistanceMatrix.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Algorithm/CalculateDistanceMatrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertImageToArray.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoveAlpha.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Algorithm/RemoveAlpha.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-210">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -205,9 +151,16 @@
       <file leaf-file-name="VectorImage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Vector/VectorImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="85" column="28" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="372">
+              <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+              <folding>
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,7 +169,7 @@
         <entry file="file://$PROJECT_DIR$/src/Vector/Polyline.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -226,7 +179,7 @@
         <entry file="file://$PROJECT_DIR$/src/Vector/Polygon.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -236,40 +189,8 @@
         <entry file="file://$PROJECT_DIR$/src/Vector/Line.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iVectorElement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vector/iVectorElement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RemoveRegions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Algorithm/RemoveRegions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3531">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FindLine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Algorithm/FindLine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4851">
-              <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -301,7 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Algorithm/iArrayAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java" />
         <option value="$PROJECT_DIR$/src/Algorithm/SeparateRegions.java" />
         <option value="$PROJECT_DIR$/src/Matrix/iMatrixAlgorithm.java" />
@@ -309,8 +229,6 @@
         <option value="$PROJECT_DIR$/src/Matrix/DistanceMatrix.java" />
         <option value="$PROJECT_DIR$/src/GUI/State.java" />
         <option value="$PROJECT_DIR$/src/GUI/Command.java" />
-        <option value="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" />
-        <option value="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Algorithm/MergeArrays.java" />
         <option value="$PROJECT_DIR$/src/Algorithm/ConvertDistanceMatrixToImage.java" />
         <option value="$PROJECT_DIR$/src/Algorithm/InvertArray.java" />
@@ -348,9 +266,12 @@
         <option value="$PROJECT_DIR$/src/SVG/SVG.java" />
         <option value="$PROJECT_DIR$/src/Vector/SVG.java" />
         <option value="$PROJECT_DIR$/src/Vector/iVectorElement.java" />
+        <option value="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/Algorithm/iVectorAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Vector/Line.java" />
         <option value="$PROJECT_DIR$/src/Vector/Polygon.java" />
         <option value="$PROJECT_DIR$/src/Vector/Polyline.java" />
+        <option value="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" />
         <option value="$PROJECT_DIR$/src/Vector/VectorImage.java" />
       </list>
     </option>
@@ -452,6 +373,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktikum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktikum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Algorithm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1021,7 +960,7 @@
       <workItem from="1480080853768" duration="7146000" />
       <workItem from="1480150671373" duration="4373000" />
       <workItem from="1480166637875" duration="3355000" />
-      <workItem from="1480251386743" duration="1513000" />
+      <workItem from="1480251386743" duration="2430000" />
     </task>
     <task id="LOCAL-00001" summary="neue Ansatz">
       <created>1480082150188</created>
@@ -1030,11 +969,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480082150188</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Vector statt SVG">
+      <created>1480252931373</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1480252931373</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253548000" />
+    <option name="totallyTimeSpent" value="254465000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1052,13 +998,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32091448" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32091448" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26902464" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26333615" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26333615" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1129,7 +1075,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="neue Ansatz" />
-    <option name="LAST_COMMIT_MESSAGE" value="neue Ansatz" />
+    <MESSAGE value="Vector statt SVG" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vector statt SVG" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1150,13 +1097,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/ScaleDown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13893">
@@ -1259,21 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/CalculateDistanceMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/iImageAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -1316,6 +1241,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,13 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1381,42 +1300,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeBlackWhite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="24" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/RemoveRegions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3531">
           <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7029">
-          <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithm/ScanLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3993">
-          <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1439,10 +1326,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/iVectorAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeGrayScale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="24" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/RemoveAlpha.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-686">
+          <caret line="247" column="11" selection-start-line="247" selection-start-column="11" selection-end-line="247" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vector/Line.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1450,7 +1369,7 @@
     <entry file="file://$PROJECT_DIR$/src/Vector/Polygon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1458,16 +1377,55 @@
     <entry file="file://$PROJECT_DIR$/src/Vector/Polyline.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/MakeBlackWhite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="33" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/ScanLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2410">
+          <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/CalculateDistanceMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vector/VectorImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="85" column="28" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="372">
+          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+          <folding>
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

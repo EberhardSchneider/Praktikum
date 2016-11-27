@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by eberh_000 on 27.11.2016.
  */
-class Polygon  implements VectorImage.iVectorElement {
+class Polygon  implements iVectorElement {
 
     int[] x;
     int[] y;

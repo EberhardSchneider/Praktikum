@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by eberh_000 on 27.11.2016.
  */
-class Line implements VectorImage.iVectorElement {
+class Line implements iVectorElement {
 
     int x1, x2, y1, y2;
     int stroke = 1;

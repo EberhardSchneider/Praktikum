@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Now it's getting serious!
  */
-public class SearchLine implements iSVGAlgorithm {
+public class SearchLine implements iVectorAlgorithm {
 
     VectorImage vectorImage = new VectorImage();
 

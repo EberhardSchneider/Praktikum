@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by eberh_000 on 27.11.2016.
  */
-class Polyline implements VectorImage.iVectorElement {
+class Polyline implements iVectorElement {
 
     int[] x;
     int[] y;

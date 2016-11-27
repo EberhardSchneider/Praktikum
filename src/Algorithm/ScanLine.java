@@ -133,7 +133,7 @@ public class ScanLine implements iImageAlgorithm {
         iArrayAlgorithm skelet = new SkeletonizeMatrix();
         int[][] s = skelet.processArray( array );
 
-        iSVGAlgorithm fLine = new FindLine();
+        iVectorAlgorithm fLine = new FindLine();
         VectorImage result = fLine.processArray( s );
 
         image = result.getImage( s.length, s[0].length );

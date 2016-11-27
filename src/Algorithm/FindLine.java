@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by eberh_000 on 25.11.2016.
  */
-public class FindLine implements iSVGAlgorithm {
+public class FindLine implements iVectorAlgorithm {
 
     int[][] array;      // image-Array
 

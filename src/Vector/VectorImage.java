@@ -14,22 +14,18 @@ public class VectorImage {
 
     ArrayList<iVectorElement> elements = new ArrayList<>();
 
-    interface iVectorElement {
-        public String toSVG();
-        public Point[] getCoordinates();
+    int width = 800;
+    int height = 600;
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-
-
-
-
-
-
-
-
-
-    public void addLine( int x1, int y1, int x2, int y2) {
+    public void addLine(int x1, int y1, int x2, int y2) {
         elements.add( new Line(x1, y1, x2, y2) );
     }
     public void addLine( int x1, int y1, int x2, int y2, int stroke) {
@@ -107,13 +103,13 @@ public class VectorImage {
      * returns a buffered image which shows the svg elements stored
      * @return image with svg elements
      */
-    public BufferedImage getImage(int width, int height) {
-        BufferedImage image = new BufferedImage( width, height, BufferedImage.TYPE_BYTE_GRAY);
+    public BufferedImage getImage() {
+        BufferedImage image = new BufferedImage( width * 8, height * 8, BufferedImage.TYPE_BYTE_GRAY);
 
         Graphics2D g = image.createGraphics();
 
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++)
+        for (int x = 0; x < width * 8; x++)
+            for (int y = 0; y < height * 8; y++)
                 image.setRGB( x, y, 0xFFFFFF);
         // calculate max x / y - coordinates in svg elements
         int maxX = 0;
@@ -126,7 +122,7 @@ public class VectorImage {
             g.setColor( Color.BLACK );
             g.setStroke( new BasicStroke( 2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
             for (int i = 1; i < p.length; i++) {
-                g.drawLine( p[i-1].x, p[i-1].y, p[i].x, p[i].y);
+                g.drawLine( p[i-1].x * 8, p[i-1].y * 8, p[i].x * 8, p[i].y * 8);
 
             }
 
@@ -134,6 +130,12 @@ public class VectorImage {
         }
 
         return image;
+    }
+
+    public BufferedImage getImage(int width, int height) {
+        this.width = width;
+        this.height = height;
+        return getImage();
     }
 
     public void deleteLinesShorterThan(double maxLength) {
