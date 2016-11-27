@@ -9,23 +9,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/Algorithm/MakeRaster.java" line="37" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Vector statt SVG">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/iSVGAlgorithm.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Algorithm/iSVGAlgorithm.java" afterPath="$PROJECT_DIR$/src/Algorithm/iVectorAlgorithm.java" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertImageToArray.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ConvertImageToArray.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScanLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/ScanLine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/SearchLine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine.class" afterPath="$PROJECT_DIR$/out/production/linefind/Algorithm/TSearchLine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" afterPath="$PROJECT_DIR$/src/Algorithm/ConvertImageToArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/FindLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/FindLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/ScanLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/ScanLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/SearchLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/SearchLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithm/TSearchLine.java" afterPath="$PROJECT_DIR$/src/Algorithm/TSearchLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Line.java" afterPath="$PROJECT_DIR$/src/Vector/Line.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Polygon.java" afterPath="$PROJECT_DIR$/src/Vector/Polygon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/Polyline.java" afterPath="$PROJECT_DIR$/src/Vector/Polyline.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vector/VectorImage.java" afterPath="$PROJECT_DIR$/src/Vector/VectorImage.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -960,7 +949,7 @@
       <workItem from="1480080853768" duration="7146000" />
       <workItem from="1480150671373" duration="4373000" />
       <workItem from="1480166637875" duration="3355000" />
-      <workItem from="1480251386743" duration="2430000" />
+      <workItem from="1480251386743" duration="2440000" />
     </task>
     <task id="LOCAL-00001" summary="neue Ansatz">
       <created>1480082150188</created>
@@ -976,11 +965,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480252931373</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Vector statt SVG">
+      <created>1480254218138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480254218138</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254465000" />
+    <option name="totallyTimeSpent" value="254475000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -994,7 +990,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="2536" height="1392" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
