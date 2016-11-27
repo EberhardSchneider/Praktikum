@@ -1,10 +1,7 @@
 package Algorithm;
 
-import SVG.*;
+import Vector.*;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.scene.layout.StackPane;
@@ -12,8 +9,6 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,7 +17,7 @@ import java.util.Scanner;
  */
 public class TSearchLine implements iSVGAlgorithm {
 
-    SVG svg = new SVG();
+    VectorImage vectorImage = new VectorImage();
     BufferedImage testImage;
     Graphics2D g;
     int[][] array;
@@ -42,7 +37,7 @@ public class TSearchLine implements iSVGAlgorithm {
 
 
 
-    public SVG processArray( int[][] a ) {
+    public VectorImage processArray(int[][] a ) {
 
 
         array = a;
@@ -102,9 +97,9 @@ public class TSearchLine implements iSVGAlgorithm {
 
     }
 
-    public void dp( int index1, int index2, Point[] points, SVG resultingSVG) {
+    public void dp( int index1, int index2, Point[] points, VectorImage resultingVectorImage) {
         if ( (index2 - index1) == 1 ) {
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            resultingVectorImage.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
             return;
         }
         Point p1 = points[index1];
@@ -123,12 +118,12 @@ public class TSearchLine implements iSVGAlgorithm {
 
         if (maxDistance < 1) {
             // add line from index1 to index2
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            resultingVectorImage.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
             return;
         }
 
-        dp( index1, maxIndex, points, resultingSVG);
-        dp( maxIndex, index2, points, resultingSVG);
+        dp( index1, maxIndex, points, resultingVectorImage);
+        dp( maxIndex, index2, points, resultingVectorImage);
     }
 
     void showImage() {
@@ -224,7 +219,7 @@ public class TSearchLine implements iSVGAlgorithm {
                         currentPolyline.polyline.add( pixel );
                         // polylines.add( currentPolyline );
                         Point endPoint = pixel;
-                        svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
+                        vectorImage.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
 
                         // clear visitedPixel List
                         visitedPixels.clear();
@@ -240,7 +235,7 @@ public class TSearchLine implements iSVGAlgorithm {
                 for (int i = 0; i < polyline.length; i++) {
                     polyline[i] = poly.polyline.get( i );
                 }
-                dp(0, polyline.length-1, polyline, svg);
+                dp(0, polyline.length-1, polyline, vectorImage);
             }
 
 

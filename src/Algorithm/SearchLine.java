@@ -1,8 +1,7 @@
 package Algorithm;
 
-import SVG.*;
+import Vector.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +9,7 @@ import java.util.ArrayList;
  */
 public class SearchLine implements iSVGAlgorithm {
 
-    SVG svg = new SVG();
+    VectorImage vectorImage = new VectorImage();
 
     int width;
     int height;
@@ -21,7 +20,7 @@ public class SearchLine implements iSVGAlgorithm {
 
 
 
-    public SVG processArray( int[][] array ) {
+    public VectorImage processArray(int[][] array ) {
 
         width = array.length;
         height = array[0].length;
@@ -103,7 +102,7 @@ public class SearchLine implements iSVGAlgorithm {
                     currentPolyline.polyline.add( pixel );
                     polylines.add( currentPolyline );
                     Point endPoint = pixel;
-                    svg.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
+                    vectorImage.addLine( startingPoint.x, startingPoint.y, endPoint.x, endPoint.y );
 
                     // clear visitedPixel List
                     visitedPixels.clear();
@@ -119,16 +118,16 @@ public class SearchLine implements iSVGAlgorithm {
             for (int i = 0; i < polyline.length; i++) {
                 polyline[i] = poly.polyline.get( i );
             }
-            dp(0, polyline.length-1, polyline, svg);
+            dp(0, polyline.length-1, polyline, vectorImage);
         }
 
-        return svg;
+        return vectorImage;
 
     }
 
-    public void dp( int index1, int index2, Point[] points, SVG resultingSVG) {
+    public void dp( int index1, int index2, Point[] points, VectorImage resultingVectorImage) {
         if ( (index2 - index1) == 1 ) {
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            resultingVectorImage.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
             return;
         }
         Point p1 = points[index1];
@@ -147,12 +146,12 @@ public class SearchLine implements iSVGAlgorithm {
 
         if (maxDistance < 1) {
             // add line from index1 to index2
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            resultingVectorImage.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
             return;
         }
 
-        dp( index1, maxIndex, points, resultingSVG);
-        dp( maxIndex, index2, points, resultingSVG);
+        dp( index1, maxIndex, points, resultingVectorImage);
+        dp( maxIndex, index2, points, resultingVectorImage);
     }
 
 

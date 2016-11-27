@@ -161,13 +161,17 @@ class Point {
      */
     public int getDirection( Point neighbour ) {
         // check if neighbour really is a neighbour
-        int diffX = Math.abs( this.x - neighbour.x);
-        int diffY = Math.abs( this.y - neighbour.y);
+        int diffXAbs = Math.abs( this.x - neighbour.x);
+        int diffYAbs = Math.abs( this.y - neighbour.y);
+        int diffX = neighbour.x - this.x;
+        int diffY = neighbour.y - this.y;
 
-        if ((diffX > 1) || (diffY > 1) || ( (diffX == 0) && (diffY) == 0)) {
+        if ((diffXAbs > 1) || (diffYAbs > 1) || ( (diffXAbs == 0) && (diffYAbs) == 0)) {
             // either the distance is too great, or zero
             return -1;
         }
+
+
 
         if (diffX == 1) {
             switch ( diffY ) {

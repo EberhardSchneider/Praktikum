@@ -1,14 +1,14 @@
 package Algorithm;
 
 import java.awt.image.BufferedImage;
-import SVG.*;
+import Vector.*;
 import javafx.scene.image.ImageView;
 
 
 /**
  * Implements the whole ScanLine Process.
  * Returns the resulting vector Image in BufferedImage format.
- * getSVG() returns SVG Object in String format.
+ * getSVG() returns Vector Object in String format.
  *
  * Parameters:
  * lineThickness: threshold for line/region differentiation
@@ -26,7 +26,7 @@ public class ScanLine implements iImageAlgorithm {
     private BufferedImage image;
     private int[][] array; // image as array of 0s and 1s
     private int[][] distanceMatrix;
-    SVG svg;
+    VectorImage vectorImage;
 
     // Parameters
     private int lineThickness = 3;
@@ -67,7 +67,7 @@ public class ScanLine implements iImageAlgorithm {
 
     /**
      * calculates the vector image.
-     * stores SVG Data in ???
+     * stores Vector Data in ???
      * returns BufferedImage as representation of the result.
      *
      * @param image black & white image to be processed.
@@ -99,10 +99,10 @@ public class ScanLine implements iImageAlgorithm {
 
         // Third Step:
         // searchForLines()
-        // store in svg
+        // store in vectorImage
 
         // Fourth Step:
-        // draw new image according to svg information
+        // draw new image according to vectorImage information
         // return it
 
         return this.image;
@@ -111,7 +111,7 @@ public class ScanLine implements iImageAlgorithm {
 
     // Methods which handle the different kinds of region handling
     // the methods should delete the regions from the original picture
-    // and put their SVG Information in attribute svg.
+    // and put their Vector Information in attribute vectorImage.
     // --------------------------------------------------------------------------------------------------
 
     private void leaveAsRegion() {
@@ -124,8 +124,8 @@ public class ScanLine implements iImageAlgorithm {
         /* iArrayAlgorithm invert = new InvertArray();
         distanceMatrix = invert.processArray( distanceMatrix ); */
 
-        iArrayAlgorithm separate = new RemoveRegions( 3 );
-        withoutRegions = separate.processArray( distanceMatrix );
+        // iArrayAlgorithm separate = new RemoveRegions( 5 );
+        // withoutRegions = separate.processArray( distanceMatrix );
 
         //iArrayAlgorithm contour = new GetCountourOfRegions( 8 );
         //contourOfRegions = contour.processArray( distanceMatrix );
@@ -134,7 +134,7 @@ public class ScanLine implements iImageAlgorithm {
         int[][] s = skelet.processArray( array );
 
         iSVGAlgorithm fLine = new FindLine();
-        SVG result = fLine.processArray( s );
+        VectorImage result = fLine.processArray( s );
 
         image = result.getImage( s.length, s[0].length );
 

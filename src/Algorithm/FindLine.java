@@ -1,9 +1,8 @@
 package Algorithm;
 
-import SVG.*;
+import Vector.*;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +31,9 @@ public class FindLine implements iSVGAlgorithm {
     ArrayList<ArrayList<Point>> imageLineData = new ArrayList<>();
 
     @Override
-    public SVG processArray(int[][] a) {
+    public VectorImage processArray(int[][] a) {
+
+
 
         this.array = a;
         this.width = a.length;
@@ -99,17 +100,12 @@ public class FindLine implements iSVGAlgorithm {
 
                                 // 8. no: store LINE in POLYLINE, begin new Line: -> 3.
                                 currentPolyline.add( currentPixel );
-                                currentLine = null;
-                                currentPixel = null;
-
+                                currentLine = new Line( currentPixel, null);
+                                array[currentPixel.x][currentPixel.y] = 0;  // delete pixel in original image
                         }
 
-                        if (currentPixel != null) {
-                            neighbour = currentPixel.getFirstNeighbour( array );
-                        }
-                        else {
-                            neighbour = null;
-                        }
+                        neighbour = currentPixel.getFirstNeighbour( array );
+
 
                     } // while neighbour != null
 
@@ -118,12 +114,11 @@ public class FindLine implements iSVGAlgorithm {
                         currentPolyline.add( currentPixel );
                         imageLineData.add( currentPolyline );
 
-
                 }
             }
         }
 
-        SVG resultingSVG = new SVG();
+        VectorImage resultingVectorImage = new VectorImage();
 
         // Algorithm to smooth polylines
         for (ArrayList<Point> poly : imageLineData) {
@@ -131,17 +126,31 @@ public class FindLine implements iSVGAlgorithm {
             for (int i = 0; i < polyline.length; i++) {
                 polyline[i] = poly.get( i );
             }
-            dp(0, polyline.length-1, polyline, resultingSVG);
+            ArrayList<Point> currentPolyline = new ArrayList<>();
+            currentPolyline.add( new Point( polyline[0].x, polyline[0].y));
+            dp(0, polyline.length-1, polyline, currentPolyline);
+
+            int n = currentPolyline.size();
+            int[] x = new int[ currentPolyline.size() ];
+            int[] y = new int[ currentPolyline.size() ];
+            for (int i = 0; i < n; i++) {
+                x[i] = currentPolyline.get( i ).x;
+                y[i] = currentPolyline.get( i ).y;
+            }
+
+            resultingVectorImage.addPolygon(x,y,n);
         }
 
-
-
-        return resultingSVG;
+        resultingVectorImage.deleteLinesShorterThan( 5 );
+        System.out.println( resultingVectorImage.getSVGString() );
+        return resultingVectorImage;
     }
 
-    public void dp( int index1, int index2, Point[] points, SVG resultingSVG) {
+    public void dp( int index1, int index2, Point[] points, ArrayList<Point> polyline) {
         if ( (index2 - index1) == 1 ) {
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            polyline.add( new Point( points[index1].x, points[index1].y ));
+            polyline.add( new Point( points[index2].x, points[index2].y ));
+
             return;
         }
         Point p1 = points[index1];
@@ -151,7 +160,6 @@ public class FindLine implements iSVGAlgorithm {
         int maxIndex = -1;
 
         for (int i = index1 + 1; i < index2 - 1; i++) {
-            System.out.println( i );
             float d = points[i].distanceFromLine( p1, p2 );
             if (d > maxDistance ) {
                 maxDistance = d;
@@ -161,12 +169,13 @@ public class FindLine implements iSVGAlgorithm {
 
         if (maxDistance < 1) {
             // add line from index1 to index2
-            resultingSVG.addLine( points[index1].x, points[index1].y, points[index2].x, points[index2].y );
+            // polyline.add( new Point( points[index1].x, points[index1].y ));
+            polyline.add( new Point( points[index2].x, points[index2].y ));
             return;
         }
 
-        dp( index1, maxIndex, points, resultingSVG);
-        dp( maxIndex, index2, points, resultingSVG);
+        dp( index1, maxIndex, points, polyline);
+        dp( maxIndex, index2, points, polyline);
     }
 
 }

@@ -1,11 +1,11 @@
 package Algorithm;
 
-import SVG.*;
+import Vector.*;
 
 /**
  * To be implemented by all SearchLine Algorithms.
  */
 interface iSVGAlgorithm {
-    public SVG processArray(int[][] array );
+    public VectorImage processArray(int[][] array );
 }
 

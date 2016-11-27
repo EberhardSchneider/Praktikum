@@ -4,7 +4,7 @@ package Algorithm;
 
         import java.awt.*;
         import java.awt.image.BufferedImage;
-        import SVG.*;
+        import Vector.*;
 
 /**
  * Created by eberh_000 on 24.09.2016.
@@ -12,7 +12,7 @@ package Algorithm;
 public class FillVertical implements iImageAlgorithm {
 
     int numberOfGraylevels;
-    SVG resultingSVG = new SVG();
+    VectorImage resultingVectorImage = new VectorImage();
 
     int scale = 30;
 
@@ -62,14 +62,14 @@ public class FillVertical implements iImageAlgorithm {
         for (int i = 1; i < numberOfPoints; i++) {
             g.setStroke( stroke[ brightness[i] ] );
             g.drawLine( xPoints[i-1], yPoints[i-1], xPoints[i], yPoints[i]);
-            resultingSVG.addLine( xPoints[i-1], yPoints[i-1], xPoints[i], yPoints[i], numberOfGraylevels-brightness[i] );
+            resultingVectorImage.addLine( xPoints[i-1], yPoints[i-1], xPoints[i], yPoints[i], numberOfGraylevels-brightness[i] );
         }
 
 
         return result;
     }
 
-    public SVG getSVG() {
-        return resultingSVG;
+    public VectorImage getSVG() {
+        return resultingVectorImage;
     }
 }
