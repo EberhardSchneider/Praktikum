@@ -17,12 +17,29 @@ public class VectorImage {
     int width = 800;
     int height = 600;
 
+    public VectorImage() {
+
+    }
+
+    public VectorImage(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
     public void setWidth(int width) {
         this.width = width;
     }
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     public void addLine(int x1, int y1, int x2, int y2) {
@@ -103,40 +120,52 @@ public class VectorImage {
      * returns a buffered image which shows the svg elements stored
      * @return image with svg elements
      */
-    public BufferedImage getImage() {
-        BufferedImage image = new BufferedImage( width * 8, height * 8, BufferedImage.TYPE_BYTE_GRAY);
+    public BufferedImage getImage(float scale) {
+        BufferedImage image = new BufferedImage((int)(width * scale), (int)(height * scale), BufferedImage.TYPE_BYTE_GRAY);
 
         Graphics2D g = image.createGraphics();
 
-        for (int x = 0; x < width * 8; x++)
-            for (int y = 0; y < height * 8; y++)
-                image.setRGB( x, y, 0xFFFFFF);
-        // calculate max x / y - coordinates in svg elements
-        int maxX = 0;
-        int maxY = 0;
-
-        for (iVectorElement e : elements) {
-            Point[] p = e.getCoordinates();
+        for (int x = 0; x < width * scale; x++)
+            for (int y = 0; y < height * scale; y++)
+                image.setRGB(x, y, 0xFFFFFF);
 
 
-            g.setColor( Color.BLACK );
-            g.setStroke( new BasicStroke( 2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
-            for (int i = 1; i < p.length; i++) {
-                g.drawLine( p[i-1].x * 8, p[i-1].y * 8, p[i].x * 8, p[i].y * 8);
-
-            }
-
-
-        }
+        drawVectorImage(g,scale);
 
         return image;
     }
 
+    public BufferedImage drawInImage(BufferedImage image, float scale) {
+        Graphics2D g = image.createGraphics();
+
+        drawVectorImage(g, scale);
+
+        return image;
+    }
+
+
     public BufferedImage getImage(int width, int height) {
         this.width = width;
         this.height = height;
-        return getImage();
+        return getImage(1f);
     }
+
+    void drawVectorImage(Graphics2D g, float scale) {
+        for (iVectorElement e : elements) {
+            FloatPoint[] p = e.getCoordinates();
+
+
+            g.setColor( Color.BLACK );
+            g.setStroke( new BasicStroke( 1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+            for (int i = 1; i < p.length; i++) {
+                g.setStroke( new BasicStroke( 1, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+
+                g.drawLine( (int)(p[i-1].x * scale), (int)(p[i-1].y * scale), (int)(p[i].x * scale), (int)(p[i].y * scale) );
+
+            }
+        }
+    }
+
 
     public void deleteLinesShorterThan(double maxLength) {
         ArrayList<iVectorElement> toBeDeleted = new ArrayList<>();

@@ -34,10 +34,10 @@ class Polygon  implements iVectorElement {
         return sb.toString();
     }
 
-    public Point[] getCoordinates() {
-        Point[] result = new Point[ nPoints ];
+    public FloatPoint[] getCoordinates() {
+        FloatPoint[] result = new FloatPoint[ nPoints ];
         for (int i = 0; i < nPoints; i++) {
-            result[i] = new Point( x[i], y[i] );
+            result[i] = new FloatPoint( x[i], y[i] );
         }
         return result;
     }

@@ -44,10 +44,10 @@ class Line implements iVectorElement {
         return sb.toString();
     }
 
-    public Point[] getCoordinates() {
-        Point[] result = new Point[2];
-        result[0] = new Point(x1, y1);
-        result[1] = new Point(x2, y2);
+    public FloatPoint[] getCoordinates() {
+        FloatPoint[] result = new FloatPoint[2];
+        result[0] = new FloatPoint(x1, y1);
+        result[1] = new FloatPoint(x2, y2);
         return result;
     }
 }

@@ -1,21 +1,23 @@
 package GUI;
 
 import Algorithm.iImageAlgorithm;
+import Vector.VectorImage;
+import StateAlgorithm.*;
 
 import java.awt.image.BufferedImage;
 
 
 /**
  * State Class.
- * Holds a reference to an image and an algorithm to process it.
+ * Holds a reference to an instance of imageData and an algorithm to process it.
  *
  */
 public class State {
-    BufferedImage image;
-    iImageAlgorithm algorithm;
+    ImageData imageData;
+    iStateAlgorithm algorithm;
 
-    public State( BufferedImage i, iImageAlgorithm a) {
-        image = i;
-        algorithm = a;
+    public State( BufferedImage i, int[][] iArray, VectorImage vImage) {
+        ImageData iData = new ImageData( i, iArray, vImage);
+        this.imageData = iData;
     }
 }

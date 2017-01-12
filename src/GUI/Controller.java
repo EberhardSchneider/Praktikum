@@ -1,5 +1,6 @@
 package GUI;
 
+import Vector.VectorImage;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -10,16 +11,19 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javafx.scene.image.ImageView;
 import Algorithm.*;
+import StateAlgorithm.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -35,9 +39,17 @@ public class Controller {
 
 
     @FXML
+    Button button_load;
+    @FXML
     Button button_linefill;
     @FXML
     Button button_scanline;
+    @FXML
+    CheckBox checkbox_size;
+    @FXML
+    CheckBox checkbox_showvector;
+    @FXML
+    CheckBox checkbox_showimage;
     @FXML
     VBox vboxParam;
 
@@ -47,10 +59,17 @@ public class Controller {
      */
     Command workflow = new Command();
 
+    /**
+     * Holds the current imageData (could be retrieved from workflow)
+     */
+    ImageData imageData;
+
 
 
     @FXML
     ImageView ivImage;
+    @FXML
+    ImageView ivVector;
     @FXML
     GridPane gridpaneMain;
 
@@ -69,7 +88,6 @@ public class Controller {
 
     @FXML
     public void buttonLinefillClick() {
-        ivImage.setFitHeight(800);
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("linefill_param.fxml"));
@@ -88,7 +106,7 @@ public class Controller {
             dialogStage.showAndWait();
 
             // retrieve algorithm, and its parameters from GUI
-            iImageAlgorithm fillAlgorithm = null;
+            iStateAlgorithm fillAlgorithm = null;
 
             switch ((int)controller.getFill()) {
                 case 0: // Scanline
@@ -96,13 +114,13 @@ public class Controller {
                     int direction = controller.getLineDirection();
                     switch (direction) {
                         case 0: // horizontal
-                            fillAlgorithm = new FillHorizontal(controller.getNumberOfGrayLevels());
+                            fillAlgorithm = new StateFillHorizontal(controller.getNumberOfGrayLevels());
                             break;
                         case 1: // vertical
-                            fillAlgorithm = new FillVertical(controller.getNumberOfGrayLevels());
+                            //fillAlgorithm = new FillVertical(controller.getNumberOfGrayLevels());
                             break;
                         case 2: // spiral
-                            fillAlgorithm = new FillImageSpiral(controller.getNumberOfGrayLevels());
+                            //fillAlgorithm = new FillImageSpiral(controller.getNumberOfGrayLevels());
                             break;
                     }
                     break;
@@ -111,7 +129,7 @@ public class Controller {
                     int minIterations = controller.getMinIterations();
                     int maxIterations = controller.getMaxIterations();
                     System.out.println( "Min:" + minIterations + "  Max:  " + maxIterations );
-                    fillAlgorithm = new FillHilbert(minIterations, maxIterations);
+                    // fillAlgorithm = new FillHilbert(minIterations, maxIterations);
             }
 
 
@@ -122,8 +140,8 @@ public class Controller {
                 // 1. transform image in grayscale format
                 // 2. remove alpha channel
 
-                MakeGrayScale gray = new MakeGrayScale();
-                RemoveAlpha ra = new RemoveAlpha();
+                StateMakeGrayscale gray = new StateMakeGrayscale();
+                StateRemoveAlpha ra = new StateRemoveAlpha();
 
                 workflow.setAlgorithm(ra);
                 workflow.doAction();
@@ -174,6 +192,7 @@ public class Controller {
             button_scanline.setDisable( false );
 
             showImage();
+            button_load.setVisible(false);
         }
         catch (IOException e) {
              System.out.println("Error in Load File Dialog");
@@ -192,13 +211,66 @@ public class Controller {
         showImage();
     }
 
+    @FXML
+    public void sizeAction() {
+        showImage();
+    }
+
+    @FXML
+    public void showVectorAction() {
+        ivVector.setVisible( checkbox_showvector.isSelected());
+    }
+
+    @FXML
+    public void showImageAction() {
+        ivImage.setVisible( checkbox_showimage.isSelected() );
+    }
+
     /**
      * Shows the image in the current workflow state in the GUI.
      *
      */
     void showImage() {
-        Image showImage = SwingFXUtils.toFXImage(workflow.getImage(), null);
-        ivImage.setImage(showImage);
+        int width, height;
+
+        BufferedImage image = workflow.getImage();
+        BufferedImage imageVector = null;
+        VectorImage vectorImage = workflow.getVectorImage();
+
+        Boolean sizing = checkbox_size.isSelected();
+        Boolean showVector = checkbox_showvector.isSelected();
+        Boolean showImage = checkbox_showimage.isSelected();
+
+
+        Image fxImage = SwingFXUtils.toFXImage(image, null);
+        ivImage.setImage(fxImage);
+
+
+
+        if (vectorImage != null) {
+            imageVector = vectorImage.getImage(5f);
+            System.out.println("Draws In Image");
+        }
+        if (imageVector != null)
+            ivVector.setImage( SwingFXUtils.toFXImage( imageVector, null ));
+
+
+
+        if (sizing) {
+            ivImage.setFitHeight(0);
+            ivImage.setFitWidth(0);
+            ivVector.setFitWidth(0);
+            ivVector.setFitHeight(0);
+        } else
+        {
+            ivImage.setFitHeight(500);
+            ivImage.setFitWidth(900);
+            ivVector.setFitHeight(500);
+            ivVector.setFitWidth(900);
+        }
+
+
+
     }
 
 
@@ -214,14 +286,14 @@ public class Controller {
      */
     public void scanlineBlackWhite() {
 
-        workflow.setAlgorithm(new RemoveAlpha());
+        workflow.setAlgorithm(new StateRemoveAlpha());
         workflow.doAction();
 
-        workflow.setAlgorithm(new MakeGrayScale());
+        workflow.setAlgorithm(new StateMakeGrayscale());
         workflow.doAction();
 
-        workflow.setAlgorithm( new MakeBlackWhite( 100) );
-        workflow.doAction();
+        //workflow.setAlgorithm( new MakeBlackWhite( 100) );
+        //workflow.doAction();
 
 
         Slider slider = new Slider();
@@ -274,8 +346,8 @@ public class Controller {
         //for testing:
         scanline.setImageView( ivImage );
 
-        workflow.setAlgorithm( scanline );
-        workflow.doAction();
+        //workflow.setAlgorithm( scanline );
+        //workflow.doAction();
 
         showImage();
     }

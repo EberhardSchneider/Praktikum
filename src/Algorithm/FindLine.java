@@ -141,8 +141,7 @@ public class FindLine implements iVectorAlgorithm {
             resultingVectorImage.addPolygon(x,y,n);
         }
 
-        resultingVectorImage.deleteLinesShorterThan( 5 );
-        System.out.println( resultingVectorImage.getSVGString() );
+        resultingVectorImage.deleteLinesShorterThan( 3 );
         return resultingVectorImage;
     }
 

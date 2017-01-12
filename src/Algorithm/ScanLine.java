@@ -137,13 +137,6 @@ public class ScanLine implements iImageAlgorithm {
         VectorImage result = fLine.processArray( s );
 
         image = result.getImage( s.length, s[0].length );
-
-
-
-
-
-
-
     }
 
 

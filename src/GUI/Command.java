@@ -2,6 +2,8 @@ package GUI;
 
 import java.awt.image.BufferedImage;
 import Algorithm.iImageAlgorithm;
+import StateAlgorithm.iStateAlgorithm;
+import Vector.VectorImage;
 
 
 import java.util.ArrayList;
@@ -28,17 +30,19 @@ public class Command {
      */
     public void initState(BufferedImage image) {
         stateFlow.clear();
-        State state = new State(image, null);
+        State state = new State(image, null, null);
         stateFlow.add( state );
         currentState = state;
         index = 0;
     }
 
     public BufferedImage getImage() {
-        return currentState.image;
+        return currentState.imageData.image;
     }
+    public int[][] getImageArray() { return currentState.imageData.imageArray; }
+    public VectorImage getVectorImage() { return currentState.imageData.vectorImage; }
 
-    public void setAlgorithm(iImageAlgorithm a) {
+    public void setAlgorithm(iStateAlgorithm a) {
         currentState.algorithm = a;
     }
 
@@ -48,12 +52,12 @@ public class Command {
      */
     public void doAction() {
         if (currentState == null || currentState.algorithm == null
-                || currentState.image == null) {
+                || currentState.imageData == null) {
             return;
         }
 
-        BufferedImage newImage = currentState.algorithm.processImage(currentState.image);
-        State newState = new State( newImage, null);
+
+        State newState = currentState.algorithm.processImage( currentState.imageData );
         stateFlow.add( newState );
         currentState = newState;
         index++;

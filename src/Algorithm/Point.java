@@ -205,4 +205,38 @@ class Point {
 
         return -1;
     }
+
+    static ArrayList<Point> getSchnorkelList(Point pZero, Point pOmega) {
+        ArrayList<Point> schnorkel = new ArrayList<>();
+        schnorkel.add( pZero );
+
+
+        // direction from pZero to pOmega
+        // 1 = left  right // 2 = right left // 3 = up down // 4 = down up
+        int orientation;
+
+        if (pZero.x == pOmega.x) {
+            if (pZero.y < pOmega.y) {
+                orientation = 3;
+            }
+            else {
+                orientation = 4;
+            }
+        }
+        else if (pZero.y == pOmega.y) {
+            if (pZero.x < pOmega.x) {
+                orientation = 1;
+            }
+            else {
+                orientation = 2;
+            }
+        }
+        else
+            return schnorkel;  // PZero == pOmega
+
+
+        return schnorkel;
+    }
+
+
 }
