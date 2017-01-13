@@ -342,12 +342,11 @@ public class Controller {
 
     public void scanlineTWO() {
 
-        ScanLine scanline = new ScanLine( );
-        //for testing:
-        scanline.setImageView( ivImage );
+        StateScanline scanline = new StateScanline( );
 
-        //workflow.setAlgorithm( scanline );
-        //workflow.doAction();
+
+        workflow.setAlgorithm( scanline );
+        workflow.doAction();
 
         showImage();
     }
