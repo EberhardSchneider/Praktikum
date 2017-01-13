@@ -1,5 +1,4 @@
 package StateAlgorithm;
-
 import GUI.ImageData;
 import GUI.State;
 

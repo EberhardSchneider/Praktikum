@@ -30,7 +30,7 @@ public class Command {
      */
     public void initState(BufferedImage image) {
         stateFlow.clear();
-        State state = new State(image, null, null);
+        State state = new State(image);
         stateFlow.add( state );
         currentState = state;
         index = 0;

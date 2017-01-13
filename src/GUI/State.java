@@ -20,4 +20,10 @@ public class State {
         ImageData iData = new ImageData( i, iArray, vImage);
         this.imageData = iData;
     }
+
+    public State(BufferedImage i) {
+        ImageData iData = new ImageData(i);
+        this.imageData = iData;
+    }
+
 }

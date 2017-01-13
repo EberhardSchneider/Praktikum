@@ -5,7 +5,7 @@ import Vector.*;
 /**
  * To be implemented by all SearchLine Algorithms.
  */
-interface iVectorAlgorithm {
+public interface iVectorAlgorithm {
     public VectorImage processArray(int[][] array );
 }
 

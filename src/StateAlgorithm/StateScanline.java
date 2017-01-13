@@ -2,6 +2,7 @@ package StateAlgorithm;
 
 import Algorithm.*;
 import GUI.ImageData;
+import GUI.State;
 import Vector.VectorImage;
 
 import java.awt.image.BufferedImage;
@@ -53,13 +54,13 @@ public class StateScanline implements iStateAlgorithm {
      * stores Vector Data in ???
      * returns BufferedImage as representation of the result.
      *
-     * @param image black & white image to be processed.
+     * @param imageData black & white image to be processed.
      * @return
      */
-    public BufferedImage processImage(ImageData image) {
+    public State processImage(ImageData imageData) {
 
-        this.image = image.getImage();
-        array = image.getImageArray();
+        this.image = imageData.getImage();
+        array = imageData.getImageArray();
 
         iArrayAlgorithm calculateDistanceMatrix = new CalculateDistanceMatrix();
         this.distanceMatrix = calculateDistanceMatrix.processArray( array );
@@ -89,7 +90,7 @@ public class StateScanline implements iStateAlgorithm {
         // draw new image according to vectorImage information
         // return it
 
-        return this.image;
+        return new State(image);
     }
 
 
