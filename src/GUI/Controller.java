@@ -312,7 +312,7 @@ public class Controller {
                 if ( oldValue == newValue ) return;
                 workflow.undoAction();
 
-                workflow.setAlgorithm( new MakeBlackWhite( (int)Math.round(newValue.doubleValue()) ) );
+                workflow.setAlgorithm( new StateMakeBlackWhite( (int)Math.round(newValue.doubleValue()) ) );
                 workflow.doAction();
 
                 showImage();

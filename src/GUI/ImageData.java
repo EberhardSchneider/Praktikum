@@ -13,6 +13,14 @@ public class ImageData {
     int[][] imageArray;
     VectorImage vectorImage;
 
+    /**
+     *  If initialized with BufferedImage imageArray should be calculated instantly
+     * @param i
+     */
+    public ImageData(BufferedImage i) {
+
+    }
+
     public ImageData(BufferedImage i, int[][] iArray, VectorImage vImage) {
         this.image = i;
         this.imageArray = iArray;

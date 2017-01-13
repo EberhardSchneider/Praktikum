@@ -18,7 +18,7 @@ public class StateMakeBlackWhite implements iStateAlgorithm {
     private int threshold = 190;
 
     public State processImage(ImageData imageData) {
-        Image image = imageData.getImage();
+        BufferedImage image = imageData.getImage();
         int width = image.getWidth();
         int height = image.getHeight();
 
@@ -42,6 +42,6 @@ public class StateMakeBlackWhite implements iStateAlgorithm {
                 } else
                     result.setRGB( x,y, 0 );
             }
-        return result;
+        return new State(result, imageData.getImageArray(), imageData.getVectorImage() );
     }
 }
