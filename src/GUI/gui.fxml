@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -16,11 +19,29 @@
    <children>
         <ScrollPane GridPane.columnSpan="5">
           <StackPane prefHeight="628.0" prefWidth="912.0" GridPane.columnIndex="1">
+            <MenuBar StackPane.alignment="TOP_LEFT">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                      <MenuItem mnemonicParsing="false" onAction="#buttonLoadClick" text="Load Image" />
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
 
               <ImageView fx:id="ivImage" preserveRatio="true" />
               <ImageView fx:id="ivVector" blendMode="DIFFERENCE" preserveRatio="true" />
-
-             <Button fx:id="button_load" mnemonicParsing="false" onAction="#buttonLoadClick" text="Load Image" />
 
 
 
@@ -29,12 +50,9 @@
 
        <VBox fx:id="vboxParam" prefHeight="100" prefWidth="200" GridPane.columnIndex="5">
          <children>
-             <CheckBox fx:id="checkbox_size" mnemonicParsing="false" onAction="#sizeAction"
-                       text="Original Size" />
-             <CheckBox fx:id="checkbox_showvector" mnemonicParsing="false" onAction="#showVectorAction"
-                       text="Show Vectors" selected="true" />
-             <CheckBox fx:id="checkbox_showimage" mnemonicParsing="false" onAction="#showImageAction"
-                       text="Show Image" selected="true"/>
+             <CheckBox fx:id="checkbox_size" mnemonicParsing="false" onAction="#sizeAction" text="Original Size" />
+             <CheckBox fx:id="checkbox_showvector" mnemonicParsing="false" onAction="#showVectorAction" selected="true" text="Show Vectors" />
+             <CheckBox fx:id="checkbox_showimage" mnemonicParsing="false" onAction="#showImageAction" selected="true" text="Show Image" />
          </children></VBox>
 
       <ButtonBar prefHeight="25.0" prefWidth="405.0" GridPane.columnSpan="5" GridPane.rowIndex="1">
